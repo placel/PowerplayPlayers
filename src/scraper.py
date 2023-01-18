@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 import requests
-import pyautogui
 import sys
 from datetime import date
 from bs4 import BeautifulSoup
@@ -24,27 +23,6 @@ driver = webdriver.Chrome(PATH, chrome_options=chrome_options)
 
 not_on_pp_unit = []
 all_betable_players = []
-
-def rotogrinders(team_a, team_b, a_players, b_players):
-    headers = { 'User-Agent': UserAgent().random }
-    
-    pp_links = []
-
-    req = requests.get('https://rotogrinders.com/lineups/nhl?site=draftkings', headers=headers)
-    soup = BeautifulSoup(req.text, 'html.parser')
-
-    all_players = soup.find_all('span', 'pname')
-
-    pp_players = []
-    for i in range(0, len(a_players)):
-        last_name = a_players[i].split(' ')[1]
-        abbrevName = a_players[i].text[0] + ' ' + last_name
-        if abbrevName in all_players:
-            # Add code to check if the player is on a PPU, and if they are, append their name and which unit their on to an array
-            if all_players[i].includes("PP1"):
-                pp_players.append({a_players: {'ppUnit': 'PP1'}})
-            elif all_players[i].includes("PP2"):
-                pp_players.append({a_players: {'ppUnit': 'PP2'}})
 
 def dailyfaceoff(team_a, team_b, a_players, b_players):
     # Access denied without valid user-agent
@@ -106,12 +84,7 @@ def dailyfaceoff(team_a, team_b, a_players, b_players):
             print(p + ' is not on a powerplay unit: ' + team_b)
             not_on_pp_unit.append(p + ': ' + team_b)
 
-    return
-
-def get_pp_unit(team_a, team_b, a_players, b_players):
-    dailyfaceoff(team_a, team_b, a_players, b_players)
-    return
-    
+    return   
 
 def get_rosters(team_a, team_b, powerplayers):
     a_roster = []
@@ -165,6 +138,8 @@ def get_rosters(team_a, team_b, powerplayers):
 
     # get_pp_unit(team_a, team_b, a_team_bets, b_team_bets)
     dailyfaceoff(team_a, team_b, a_team_bets, b_team_bets)
+    # print('starting')
+    # rotogrinders(team_a, team_b, a_team_bets, b_team_bets)
     return
 
 def wait_till_reload(element, time=2):
@@ -259,8 +234,9 @@ def get_daily_games():
     game_list = len(driver.find_elements(By.CLASS_NAME, 'ffi-MarketIceHockeyFixtureDetails'))
     count = 0
 
+    game_start_count = 0
     print("Game Count: " + str(game_list))
-    for i in range(0, game_list):
+    for i in range(game_start_count, game_list):
         driver.get('https://www.on.bet365.ca/#/AS/B17/')
 
         wait_till_reload('ff-FeaturedFixtureScroller', 2)
