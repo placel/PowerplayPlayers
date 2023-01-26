@@ -9,6 +9,41 @@ from bs4 import BeautifulSoup
 PPP_LIMIT = 4
 pp_map = dict()
 
+TEAMS = {
+    'BOS': 'boston-bruins',
+    'BUF': 'buffalo-sabres',
+    'DET': 'detroit-red-wings',
+    'FLA': 'florida-panthers',
+    'MTL': 'montreal-candiens',
+    'OTT': 'ottawa-senators',
+    'TBL': 'tampa-bay-lightning',
+    'TOR': 'toronto-maple-leafs',
+    'CAR': 'carolina-hurricanes',
+    'CBJ': 'columbus-blue-jackets',
+    'NJD': 'new-jersey-devils',
+    'NYI': 'new-york-islanders',
+    'NYR': 'new-york-rangers',
+    'PHI': 'philadelphia-flyers',
+    'PIT': 'pittsburgh-penguins',
+    'WAS': 'washington-capitals',
+    'ARZ': 'arizona-coytes',
+    'CHI': 'chicago-blackhawks',
+    'COL': 'colorado-avalanche',
+    'DAL': 'dallas-stars',
+    'MIN': 'minnesota-wild',
+    'NAS': 'nashville-predators',
+    'STL': 'st.-louis-blues',
+    'WIN': 'winnipeg-jets',
+    'ANA': 'anaheim-ducks',
+    'CAL': 'calgary-flames',
+    'EDM': 'edmonton-oilers',
+    'LAK': 'los-angeles-kings',
+    'SJS': 'san-jose-sharks',
+    'VAN': 'vancouver-canucks',
+    'LGK': 'las-vegas-golden-knights',
+    'SEA': 'seattle-kraken',
+}
+
 def filter_pp(players):
     for p in players:
         if p['ppPoints'] <= PPP_LIMIT:
@@ -27,9 +62,27 @@ def filter_pp(players):
                     'position': p['positionCode']
                 }
 
-def display_bums(players):
-    df = pandas.DataFrame(players)
+def write_to_csv(bum_list):
+    df = pandas.DataFrame(bum_list)
+    df.to_csv('ai_bum_list.csv', sep=',')
+
+def write_to_json(bum_list, team_list):
+    df = pandas.DataFrame(bum_list)
+    df.to_json('bumList.json')
     
+    df = pandas.DataFrame(team_list)
+    df.to_json('teamList.json')
+
+def display_bums(players):
+
+    for i in range(0, len(players)):
+        players[i].update({'row': i})
+    
+    # for i in team_stats:
+    #     print('-------------')
+    #     print('TEAM: ' + i['TEAM']['display'])
+    #     print('PEN/GP: ' + i['PEN/GP']['display'])
+
     # print(df.to_markdown(tablefmt="grid"))
     # print(df.to_markdown(tablefmt="simple_grid"))
     # print(df.to_markdown(tablefmt="rounded_grid"))
@@ -37,7 +90,18 @@ def display_bums(players):
     # print(df.to_markdown(tablefmt="fancy_outline"))
     # print(df.to_markdown(tablefmt="double_outline"))
     # print(df.to_markdown(tablefmt="html"))
+    df = pandas.DataFrame(players)
     print(df.to_markdown(tablefmt="heavy_outline"))
+
+def get_team_stats():
+    headers = { 'User-Agent': UserAgent().random }
+    req = requests.get('https://www.statmuse.com/nhl/ask/nhl-penalties-per-game-by-team-2023', headers=headers)
+    soup = BeautifulSoup(req.text, 'html.parser')
+
+    teams = json.loads(str(soup.find('visual-answer')['answer']).replace('&quot', "'"))
+    teams = teams['visual']['detail'][0]['grids'][0]['rows']
+
+    return teams
 
 # https://www.geeksforgeeks.org/python-program-to-convert-seconds-into-hours-minutes-and-seconds/
 def convert_seconds(seconds):
@@ -53,7 +117,15 @@ def multiples_found(soup, player):
 
     BASE_URL = 'https://www.quanthockey.com'
     print('Multiple Found: ' + player['skaterFullName'])
+
+    # TODO: Add functionality in case multiple matches found even after position and shooting style
     if player['skaterFullName'] == 'Mike Hoffman':
+        return False
+
+    if player['skaterFullName'] == 'Mike Matheson':
+        return False
+    
+    if player['skaterFullName'] == 'Nicholas Paul':
         return False
 
     player_bio = ''
@@ -79,8 +151,10 @@ def multiples_found(soup, player):
         soup = BeautifulSoup(req.text, 'html.parser')
 
         bio = soup.find('div', id='player-bio')
-
-        if player_bio in bio:
+        name_field = soup.find('h1', id='pp_title').text
+        print(name_field)
+        print(player['skaterFullName'].split(' ', 1)[1])
+        if player_bio in bio and player['skaterFullName'].split(' ', 1)[1] in name_field:
             break
 
     # Return soup with the proper page data
@@ -213,18 +287,17 @@ def get_bum_list(players):
         print('Wrote to bum_list')
 
     bum_list = rotogrinders(bum_list)
-
     bum_list = get_pp_toi(bum_list)
+    # team_stats = get_team_stats()
+    # display_bums(bum_list, team_stats)
     display_bums(bum_list)
 
     # players = rotogrinders(players)
     # players = get_pp_toi(players)
-    # display_bums(players)
-
-
-    # display_bums(players)
-    # for i in players:
-    #     print(i)
+    # team_stats = get_team_stats()
+    # display_bums(players, team_stats=team_stats)
+    # write_to_csv(players)
+    # write_to_json(players, team_stats)
 
     return bum_list
 
