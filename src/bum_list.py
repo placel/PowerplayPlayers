@@ -44,6 +44,7 @@ TEAMS = {
     'SEA': 'seattle-kraken',
 }
 
+# Filters through all the players retrieved from NHL API to find the players with less ppPoints than the PP_LIMIT
 def filter_pp(players):
     for p in players:
         if p['ppPoints'] <= PPP_LIMIT:
@@ -64,25 +65,48 @@ def filter_pp(players):
 
 def write_to_csv(bum_list):
     df = pandas.DataFrame(bum_list)
-    df.to_csv('ai_bum_list.csv', sep=',')
+    df.to_csv('./lib/ai_bum_list.csv', sep=',')
 
 def write_to_json(bum_list, team_list):
-    df = pandas.DataFrame(bum_list)
-    df.to_json('bumList.json')
-    
-    df = pandas.DataFrame(team_list)
-    df.to_json('teamList.json')
 
-def display_bums(players):
+    # Format the json for index.html use
+    updated_bum_list = []
+    for i in bum_list:
+        temp = [
+            str(i['skaterFullName']),
+            str(i['teamAbbrevs']),
+            str(i['ppPoints']),
+            str(i['ppUnit']),
+            str(i['gamesPlayed']),
+            str(i['avgPowerplayToi'])
+        ]
+
+        updated_bum_list.append(temp)
+
+    with open('./lib/bumList.json', 'w', encoding='utf-8') as f:
+        json.dump(updated_bum_list, f, ensure_ascii=False, indent=4)
+
+    updated_team_list = []
+    for i in team_list:
+        temp = [
+            i['TEAM']['display'],
+            i['PEN/GP']['display'],
+            i['PP%']['display'],
+            i['PK%']['display'],
+            i['G']['display'],
+            i['GA']['display'],
+        ]
+
+        updated_team_list.append(temp)
+    
+    with open('./lib/teamList.json', 'w', encoding='utf-8') as f:
+        json.dump(updated_team_list, f, ensure_ascii=False, indent=4)
+
+def display_bums(players, team_stats):
 
     for i in range(0, len(players)):
         players[i].update({'row': i})
     
-    # for i in team_stats:
-    #     print('-------------')
-    #     print('TEAM: ' + i['TEAM']['display'])
-    #     print('PEN/GP: ' + i['PEN/GP']['display'])
-
     # print(df.to_markdown(tablefmt="grid"))
     # print(df.to_markdown(tablefmt="simple_grid"))
     # print(df.to_markdown(tablefmt="rounded_grid"))
@@ -116,7 +140,6 @@ def multiples_found(soup, player):
     headers = { 'User-Agent': UserAgent().random }
 
     BASE_URL = 'https://www.quanthockey.com'
-    print('Multiple Found: ' + player['skaterFullName'])
 
     # TODO: Add functionality in case multiple matches found even after position and shooting style
     if player['skaterFullName'] == 'Mike Hoffman':
@@ -152,8 +175,6 @@ def multiples_found(soup, player):
 
         bio = soup.find('div', id='player-bio')
         name_field = soup.find('h1', id='pp_title').text
-        print(name_field)
-        print(player['skaterFullName'].split(' ', 1)[1])
         if player_bio in bio and player['skaterFullName'].split(' ', 1)[1] in name_field:
             break
 
@@ -226,7 +247,7 @@ def rotogrinders(players):
 
     req = requests.get('https://rotogrinders.com/lineups/nhl?site=draftkings', headers=headers)
     soup = BeautifulSoup(req.text, 'html.parser')
-
+    
     all_players = soup.find_all('span', 'pname')
     filtered_players_name = []
     filtered_players_ppUnit = dict()
@@ -278,26 +299,26 @@ def get_bum_list(players):
 
     filter_pp(all_players)
     for i in players:
-        if i.strip() in pp_map.keys():
-            player = pp_map[i.strip()]
+        if i.replace('ö', 'o').strip() in pp_map.keys(): # replace is for Emil Bemstrom
+            player = pp_map[i.replace('ö', 'o').strip()]
             bum_list.append(player)
-
-    with open('bum_list', 'wb') as f:
+    
+    with open('bum_list.pickle', 'wb') as f:
         pickle.dump(bum_list, f)
         print('Wrote to bum_list')
 
     bum_list = rotogrinders(bum_list)
     bum_list = get_pp_toi(bum_list)
-    # team_stats = get_team_stats()
-    # display_bums(bum_list, team_stats)
-    display_bums(bum_list)
+    team_stats = get_team_stats()
+    display_bums(bum_list, team_stats)
+    # display_bums(bum_list)
 
     # players = rotogrinders(players)
     # players = get_pp_toi(players)
     # team_stats = get_team_stats()
     # display_bums(players, team_stats=team_stats)
-    # write_to_csv(players)
-    # write_to_json(players, team_stats)
+    write_to_csv(bum_list)
+    write_to_json(bum_list, team_stats)
 
     return bum_list
 
