@@ -27,19 +27,110 @@
 
 <script>
 
+    const TEAMS = {
+        'BOS': 'Boston Bruins',
+        'BUF': 'Buffalo Sabres',
+        'DET': 'Detroit Red Wings',
+        'FLA': 'Florida Panthers',
+        'MON': 'Montreal Canadiens',
+        'OTT': 'Ottawa Senators',
+        'TB': 'Tampa Bay Lightning',
+        'TOR': 'Toronto Maple Leafs',
+        'CAR': 'Carolina Hurricanes',
+        'CBJ': 'Columbus Blue Jackets',
+        'CLS': 'Columbus Blue Jackets',
+        'NJ': 'New Jersey Devils',
+        'NJD': 'New Jersey Devils',
+        'NYI': 'New York Islanders',
+        'NYR': 'New York rangers',
+        'PHI': 'Philadelphia Flyers',
+        'PIT': 'Pittsburgh Penguins',
+        'WAS': 'Washington Capitals',
+        'ARI': 'Arizona Coyotes',
+        'CHI': 'Chicago Blackhawks',
+        'COL': 'Colorado Avalanche',
+        'DAL': 'Dallas Stars',
+        'MIN': 'Minnesota Wild',
+        'NSH': 'Nashville Predators',
+        'STL': 'St. Louis Blues',
+        'WPG': 'Winnipeg Jets',
+        'ANH': 'Anaheim Ducks',
+        'CGY': 'Calgary Flames',
+        'EDM': 'Edmonton Oilers',
+        'LA': 'Los Angeles Kings',
+        'SJ': 'San Jose Sharks',
+        'VAN': 'Vancouver Canucks',
+        'VGK': 'Vegas Golden Knights',
+        'SEA': 'Seattle Kraken',
+    };
+
     async function getFile(name) {
         const data = await fetch(`http://localhost:3000/${name}`).then(res => res.json());
         return data;
     }
 
+    function expandButton(teamA, teamB) {
+        console.log(`Team A: ${teamA}, Team B: ${teamB}`);
+
+        const bums = 0, searchA = 1, searchB = 2;
+        const searchBars = Array.from(document.getElementsByTagName('input')); 
+        
+        searchBars[bums].value = teamA;
+        searchBars[searchA].value = TEAMS[teamA];
+        searchBars[searchB].value = TEAMS[teamB];
+
+        // Dispathching an 'input' event updates the search bars so that results are seen instantly
+        searchBars.forEach((s) => {
+            s.dispatchEvent(new Event('input'));
+        })
+
+    }
+
+    function closeButton() {
+        const searchBars = Array.from(document.getElementsByTagName('input')); 
+
+        searchBars.forEach((s) => {
+            s.value = '';
+            s.dispatchEvent(new Event('input'));
+        })
+    }
+
+    function processPlayers(data) {
+        let list = Array.from(data);
+
+        for(let i = 0; i < list.length; i++) {
+            const htmlButton = `
+                <center>
+                    <button class"btn-success"" onclick="expandButton('${list[i][1]}', '${list[i][6]}')">SHOW</button>
+                    <button onclick="closeButton()">HIDE</button>
+                </center>`;
+            list[i].push(htmlButton);
+        }
+
+        return list
+    }
+
+    // function processImages() {
+       // const images = Array.from(document.getElementById('teamListOne').getElementsByTagName('tbody')[0].getElementsByTagName('tr'))
+        
+       // images.forEach((t) => {
+  
+         //   let url = t.cells[0].innerText
+           // t.cells[0].innerHTML = `<img src="${url}" width="25px" height="25px" />`
+          //  t.cells[0].style = "width: 200px !important;"
+       // })
+   // }
+
     $(document).ready(async function () {
-        const bumList = await getFile('bumList.json');
+        const tempBumList = await getFile('bumList.json');
         const teamList = await getFile('teamList.json');
 
-        console.log(bumList)
+        const bumList = processPlayers(tempBumList);
+
+
 
         $('#bumList').DataTable({
-            data: bumList,
+            data: tempBumList,
             paging: false,
             columns: [
                 { title: 'Player' },
@@ -48,13 +139,18 @@
                 { title: 'PP Unit' },
                 { title: 'Games Played' },
                 { title: 'Avg Powerplay TOI' },
+                { title: 'VS' },
+                { title: '' },
             ],
+            order: [[1, 'asc'], [2, 'asc'], [3, 'desc']],
+            
         });
 
         $('#teamListOne').DataTable({
             data: teamList,
             paging: false,
             columns: [
+                // { title: 'Logo' },
                 { title: 'TEAM' },
                 { title: 'PEN/GP' },
                 { title: 'PP%' },
@@ -68,6 +164,7 @@
             data: teamList,
             paging: false,
             columns: [
+                // { title: '' },
                 { title: 'TEAM' },
                 { title: 'PEN/GP' },
                 { title: 'PP%' },
@@ -76,6 +173,8 @@
                 { title: 'G' },
             ],
         });
+
+        // processImages();
     });
 
 

@@ -1,3 +1,4 @@
+import pickle
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,16 +11,19 @@ from datetime import date
 from bs4 import BeautifulSoup
 import time
 from bum_list import get_bum_list
+from subprocess import STDOUT, Popen, PIPE
                                                         # Replace date with current year
 # https://www.nhl.com/stats/skaters?reportType=season&seasonFrom=2022&seasonTo=2022&gameType=2&filter=gamesPlayed,gte,1&sort=ppPoints&page=6&pageSize=100
 
 sys.path.append('.')
 chrome_options = Options()
 chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36')
 chrome_options.add_argument("--profile-directory=Default")
 # Init chrome driver
 PATH = "C:\Program Files\ChromeDriver\chromedriver.exe"
-driver = webdriver.Chrome(PATH, chrome_options=chrome_options)
+# driver = webdriver.Chrome(PATH, chrome_options=chrome_options)
+driver = []
 
 not_on_pp_unit = []
 all_betable_players = []
@@ -163,40 +167,42 @@ def wait_for_ppp(time=2):
     time.sleep(time)
     wait_for_ppp(time +1)
 
-def get_pp_bets(game):
-    game.click()
-    time.sleep(2)
-    driver.execute_script('location.reload()')
+# def get_pp_bets(game):
+def get_pp_bets(teams_text, powerplayers):
+    # game.click()
+    # time.sleep(2)
+    # driver.execute_script('location.reload()')
     
-    time.sleep(2)
+    # time.sleep(2)
 
-    #driver.find_element(By.CLASS_NAME, 'sph-MarketGroupNavBarButtonNew').click()
-    driver.get(driver.current_url + 'I6/O3') # I6 for player tab, I99 for same game parlay tab; /O3 opens all tabs
+    # #driver.find_element(By.CLASS_NAME, 'sph-MarketGroupNavBarButtonNew').click()
+    # driver.get(driver.current_url + 'I6/O3') # I6 for player tab, I99 for same game parlay tab; /O3 opens all tabs
 
-    time.sleep(2)
-    # wait_till_reload('gl-MarketGroup', 5)
+    # time.sleep(2)
+    # # wait_till_reload('gl-MarketGroup', 5)
     
+    # # all_sgp = driver.find_elements(By.CLASS_NAME, 'gl-MarketGroup')
     # all_sgp = driver.find_elements(By.CLASS_NAME, 'gl-MarketGroup')
-    all_sgp = driver.find_elements(By.CLASS_NAME, 'gl-MarketGroup')
-    powerplay_players = None
+    # powerplay_players = None
 
-    found_ppp = False
-    for b in all_sgp:
-        if 'Player Powerplay Points' in b.get_attribute('innerText'):
-            powerplay_players = b
-            found_ppp = True
+    # found_ppp = False
+    # for b in all_sgp:
+    #     if 'Player Powerplay Points' in b.get_attribute('innerText'):
+    #         powerplay_players = b
+    #         found_ppp = True
 
-    if not found_ppp:
-        print("Power Play Not Found")
-        return
+    # if not found_ppp:
+    #     print("Power Play Not Found")
+    #     return
 
-    powerplay_players = powerplay_players.find_elements(By.CLASS_NAME, 'srb-ParticipantLabelWithTeam_Name ')
-    powerplayers = []
-    for i in powerplay_players:
-        powerplayers.append(i.get_attribute('innerHTML'))
+    # powerplay_players = powerplay_players.find_elements(By.CLASS_NAME, 'srb-ParticipantLabelWithTeam_Name ')
+    # powerplayers = []
+    # for i in powerplay_players:
+    #     powerplayers.append(i.get_attribute('innerHTML'))
 
-    teams_text = driver.find_element(By.CLASS_NAME, 'sph-EventHeader_Label')
-    teams = teams_text.find_element(By.TAG_NAME, 'span').get_attribute('innerHTML').split('@')
+    # teams_text = driver.find_element(By.CLASS_NAME, 'sph-EventHeader_Label')
+
+    teams = teams_text.split('@')
 
     try:
         team_a = teams[0].strip().split(' ')
@@ -221,40 +227,55 @@ def get_pp_bets(game):
     get_rosters(team_a.lower(), team_b.lower(), powerplayers)
     return
 
-def get_daily_games():
-    driver.get('https://www.on.bet365.ca/#/AS/B17/')
-
-    try:
-        WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.CLASS_NAME, 'ff-FeaturedFixtureScroller'))
-        )
-    except:
-        print('error before')
+# Deprecated; No longer works
+# def get_daily_games():
+#     driver.get('https://www.on.bet365.ca/#/AS/B17/')
     
-    game_list = len(driver.find_elements(By.CLASS_NAME, 'ffi-MarketIceHockeyFixtureDetails'))
-    count = 0
+#     try:
+#         WebDriverWait(driver, 5).until(
+#             EC.presence_of_element_located((By.CLASS_NAME, 'ff-FeaturedFixtureScroller'))
+#         )
+#     except:
+#         print('error before')
+    
+#     game_list = len(driver.find_elements(By.CLASS_NAME, 'ffi-MarketIceHockeyFixtureDetails'))
+#     count = 0
 
-    game_start_count = 0
-    print("Game Count: " + str(game_list))
-    for i in range(game_start_count, game_list):
-        driver.get('https://www.on.bet365.ca/#/AS/B17/')
+#     game_start_count = 0
+#     print("Game Count: " + str(game_list))
+#     for i in range(game_start_count, game_list):
+#         driver.get('https://www.on.bet365.ca/#/AS/B17/')
 
-        wait_till_reload('ff-FeaturedFixtureScroller', 2)
+#         wait_till_reload('ff-FeaturedFixtureScroller', 2)
 
-        games = driver.find_elements(By.CLASS_NAME, 'ffi-MarketIceHockeyFixtureDetails')
-        if 'Today' not in games[i].get_attribute('innerHTML'):
-            continue
+#         games = driver.find_elements(By.CLASS_NAME, 'ffi-MarketIceHockeyFixtureDetails')
+#         if 'Today' not in games[i].get_attribute('innerHTML'):
+#             continue
 
-        get_pp_bets(games[i])
-        # time.sleep(2)
-        print(str(i + 1) + ' done')
+#         get_pp_bets(games[i])
+#         # time.sleep(2)
+#         print(str(i + 1) + ' done')
 
-    print(not_on_pp_unit)
-    return
+#     print(not_on_pp_unit)
+#     return
 
 if __name__ == "__main__":
-    get_daily_games()
-    print('Done.')
+
+    # Generates games.pickle file containing all needed information
+    output = Popen(['python', 'src/py_testing.py'], stdout=PIPE, stderr = STDOUT)
+    output.wait()
+
+    pickle_open = open('lib/games.pickle', 'rb')
+    games = pickle.load(pickle_open)
+    
+    # games is an array with each item being an array aswell pertaing to a NHL game
+    # The 0th index is always the two teams playing in that game while the rest of the array holds the players
+    for g in games:
+        team_text = g.pop(0)
+        get_pp_bets(teams_text=team_text, powerplayers=g)
+
     get_bum_list(all_betable_players)
-    driver.close()
+    
+    node = Popen(['node', '.'], stdout=PIPE, stderr = STDOUT)
+    node.wait()
     exit(0)

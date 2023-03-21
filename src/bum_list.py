@@ -6,42 +6,43 @@ import pickle
 import pandas
 from bs4 import BeautifulSoup
 
-PPP_LIMIT = 4
+PPP_LIMIT = 7
 pp_map = dict()
 
-TEAMS = {
-    'BOS': 'boston-bruins',
-    'BUF': 'buffalo-sabres',
-    'DET': 'detroit-red-wings',
-    'FLA': 'florida-panthers',
-    'MTL': 'montreal-candiens',
-    'OTT': 'ottawa-senators',
-    'TBL': 'tampa-bay-lightning',
-    'TOR': 'toronto-maple-leafs',
-    'CAR': 'carolina-hurricanes',
-    'CBJ': 'columbus-blue-jackets',
-    'NJD': 'new-jersey-devils',
-    'NYI': 'new-york-islanders',
-    'NYR': 'new-york-rangers',
-    'PHI': 'philadelphia-flyers',
-    'PIT': 'pittsburgh-penguins',
-    'WAS': 'washington-capitals',
-    'ARZ': 'arizona-coytes',
-    'CHI': 'chicago-blackhawks',
-    'COL': 'colorado-avalanche',
-    'DAL': 'dallas-stars',
-    'MIN': 'minnesota-wild',
-    'NAS': 'nashville-predators',
-    'STL': 'st.-louis-blues',
-    'WIN': 'winnipeg-jets',
-    'ANA': 'anaheim-ducks',
-    'CAL': 'calgary-flames',
-    'EDM': 'edmonton-oilers',
-    'LAK': 'los-angeles-kings',
-    'SJS': 'san-jose-sharks',
-    'VAN': 'vancouver-canucks',
-    'LGK': 'las-vegas-golden-knights',
-    'SEA': 'seattle-kraken',
+TEAM_ABBREVS = {
+    'BOS': 'BOS',
+    'BUF': 'BUF',
+    'DET': 'DET',
+    'FLA': 'FLA',
+    'MTL': 'MON',
+    'OTT': 'OTT',
+    'TBL': 'TB',
+    'TOR': 'TOR',
+    'CAR': 'CAR',
+    'CBJ': 'CBJ',
+    'NJD': 'NJD',
+    'NYI': 'NYI',
+    'NYR': 'NYR',
+    'PHI': 'PHI',
+    'PIT': 'PIT',
+    'WSH': 'WAS',
+    'ARI': 'ARI',
+    'CHI': 'CHI',
+    'COL': 'COL',
+    'DAL': 'DAL',
+    'MIN': 'MIN',
+    'NSH': 'NSH',
+    'STL': 'STL',
+    'WIN': 'WPG',
+    'WPG': 'WPG',
+    'ANA': 'ANH',
+    'CGY': 'CGY',
+    'EDM': 'EDM',
+    'LAK': 'LA',
+    'SJS': 'SJ',
+    'VAN': 'VAN',
+    'VGK': 'VGK',
+    'SEA': 'SEA',
 }
 
 # Filters through all the players retrieved from NHL API to find the players with less ppPoints than the PP_LIMIT
@@ -69,16 +70,27 @@ def write_to_csv(bum_list):
 
 def write_to_json(bum_list, team_list):
 
+    
     # Format the json for index.html use
     updated_bum_list = []
     for i in bum_list:
+        temp_abbrev = i['teamAbbrevs']
+        split_abbrev = temp_abbrev.split(',')
+
+        # Handles 2 abbrevs in one, example: "TOR, OTT" where the player was on Toronto but was recently traded and is now on Ottawa, and hasn't been fully updated yet  
+        if len(split_abbrev) == 2:
+            temp_abbrev = split_abbrev[1].strip()
+        else:
+            temp_abbrev = split_abbrev[0].strip()
+
         temp = [
             str(i['skaterFullName']),
-            str(i['teamAbbrevs']),
+            str(TEAM_ABBREVS[temp_abbrev]),
             str(i['ppPoints']),
             str(i['ppUnit']),
             str(i['gamesPlayed']),
-            str(i['avgPowerplayToi'])
+            str(i['avgPowerplayToi']),
+            str(i['vs'])
         ]
 
         updated_bum_list.append(temp)
@@ -89,6 +101,7 @@ def write_to_json(bum_list, team_list):
     updated_team_list = []
     for i in team_list:
         temp = [
+            #i['TEAM']['imageUrl'],
             i['TEAM']['display'],
             i['PEN/GP']['display'],
             i['PP%']['display'],
@@ -101,6 +114,8 @@ def write_to_json(bum_list, team_list):
     
     with open('./lib/teamList.json', 'w', encoding='utf-8') as f:
         json.dump(updated_team_list, f, ensure_ascii=False, indent=4)
+
+    print('Wrote to json')
 
 def display_bums(players, team_stats):
 
@@ -245,12 +260,24 @@ def rotogrinders(players):
     pp_links = []
     new_players = []
 
-    req = requests.get('https://rotogrinders.com/lineups/nhl?site=draftkings', headers=headers)
+    req = requests.get('https://rotogrinders.com/lineups/nhl#', headers=headers)
     soup = BeautifulSoup(req.text, 'html.parser')
-    
+
+
     all_players = soup.find_all('span', 'pname')
     filtered_players_name = []
     filtered_players_ppUnit = dict()
+
+    game_list = soup.find_all('li', id='schedule-')
+    team_abbrevs = []
+
+    for g in game_list:
+        temp_team_names = g.find_all('span', 'mascot')
+        team_names = []
+        for i in temp_team_names:
+            team_names.append(str(i).split('">')[1].split('</span')[0])
+
+        team_abbrevs.append(team_names)
 
     for p in all_players:
         first = str(p).split('class="pname">')[1]
@@ -271,9 +298,33 @@ def rotogrinders(players):
         abbrevName = str(players[i]['skaterFullName'][0]) + '. ' + str(''.join(last_name[0:5])) # Only use the last 5 letter of the players last name to avoid error like (R. Nugent-...)
         if abbrevName in ''.join(filtered_players_name):
             ppUnit = str(filtered_players_ppUnit[last_name[0:5].strip()])
+
             temp_player = players[i]
             temp_player.update({'ppUnit': ppUnit})
-            
+
+            playing_against = ''
+            for i in team_abbrevs:
+                temp_abbrev = temp_player['teamAbbrevs']
+                split_abbrev = temp_abbrev.split(',')
+
+                if len(split_abbrev) == 2:
+                    temp_abbrev = split_abbrev[1]
+                else:
+                    temp_abbrev = split_abbrev[0]
+
+                abbrev = TEAM_ABBREVS[temp_abbrev].lower()
+
+                if str(abbrev) not in str(i):
+                    continue
+
+                if abbrev in str(i[0]):
+                    playing_against = str(i[1]).upper()
+                    break
+                else:
+                    playing_against = str(i[0]).upper()
+                    break
+
+            temp_player.update({'vs': playing_against})
             new_players.append(temp_player)
     
     return new_players
@@ -303,7 +354,7 @@ def get_bum_list(players):
             player = pp_map[i.replace('ö', 'o').strip()]
             bum_list.append(player)
     
-    with open('bum_list.pickle', 'wb') as f:
+    with open('./lib/bum_list.pickle', 'wb') as f:
         pickle.dump(bum_list, f)
         print('Wrote to bum_list')
 

@@ -1,0 +1,416 @@
+[
+    [
+        "Seth Jarvis",
+        "CAR",
+        "4",
+        "2",
+        "68",
+        "01:19",
+        "NYR"
+    ],
+    [
+        "Filip Chytil",
+        "NYR",
+        "5",
+        "2",
+        "62",
+        "01:39",
+        "CAR"
+    ],
+    [
+        "Jack Roslovic",
+        "CBJ",
+        "6",
+        "2",
+        "66",
+        "01:23",
+        ""
+    ],
+    [
+        "Tom Wilson",
+        "WAS",
+        "4",
+        "2",
+        "22",
+        "02:23",
+        "CLS"
+    ],
+    [
+        "Anthony Duclair",
+        "FLA",
+        "0",
+        "2",
+        "9",
+        "01:17",
+        "PHI"
+    ],
+    [
+        "Cam York",
+        "PHI",
+        "2",
+        "1",
+        "41",
+        "02:17",
+        "FLA"
+    ],
+    [
+        "Noah Cates",
+        "PHI",
+        "5",
+        "1",
+        "69",
+        "02:20",
+        "FLA"
+    ],
+    [
+        "Tyson Foerster",
+        "PHI",
+        "1",
+        "1",
+        "5",
+        "02:19",
+        "FLA"
+    ],
+    [
+        "Morgan Frost",
+        "PHI",
+        "5",
+        "2",
+        "68",
+        "01:34",
+        "FLA"
+    ],
+    [
+        "James van Riemsdyk",
+        "PHI",
+        "4",
+        "2",
+        "48",
+        "01:25",
+        "FLA"
+    ],
+    [
+        "Ryan Hartman",
+        "MIN",
+        "4",
+        "1",
+        "48",
+        "03:52",
+        "NJ"
+    ],
+    [
+        "John Klingberg",
+        "MIN",
+        "7",
+        "1",
+        "58",
+        "04:17",
+        "NJ"
+    ],
+    [
+        "Cody Glass",
+        "NSH",
+        "5",
+        "1",
+        "58",
+        "02:29",
+        "BUF"
+    ],
+    [
+        "Philip Tomasino",
+        "NSH",
+        "4",
+        "2",
+        "17",
+        "01:05",
+        "BUF"
+    ],
+    [
+        "JJ Peterka",
+        "BUF",
+        "4",
+        "2",
+        "64",
+        "01:49",
+        "NSH"
+    ],
+    [
+        "Jack Quinn",
+        "BUF",
+        "6",
+        "2",
+        "62",
+        "02:00",
+        "NSH"
+    ],
+    [
+        "Jakob Chychrun",
+        "OTT",
+        "7",
+        "2",
+        "46",
+        "02:43",
+        "BOS"
+    ],
+    [
+        "Shane Pinto",
+        "OTT",
+        "7",
+        "2",
+        "70",
+        "01:51",
+        "BOS"
+    ],
+    [
+        "Tyler Bertuzzi",
+        "BOS",
+        "5",
+        "2",
+        "37",
+        "02:09",
+        "OTT"
+    ],
+    [
+        "Dmitry Orlov",
+        "BOS",
+        "7",
+        "2",
+        "54",
+        "02:33",
+        "OTT"
+    ],
+    [
+        "Pavel Zacha",
+        "BOS",
+        "4",
+        "2",
+        "69",
+        "01:37",
+        "OTT"
+    ],
+    [
+        "Josh Anderson",
+        "MON",
+        "4",
+        "1",
+        "68",
+        "01:08",
+        "TB"
+    ],
+    [
+        "Rafael Harvey-Pinard",
+        "MON",
+        "2",
+        "1",
+        "26",
+        "01:16",
+        "TB"
+    ],
+    [
+        "Calle Jarnkrok",
+        "TOR",
+        "2",
+        "2",
+        "62",
+        "00:58",
+        "NYI"
+    ],
+    [
+        "Kyle Palmieri",
+        "NYI",
+        "5",
+        "1",
+        "44",
+        "04:04",
+        "TOR"
+    ],
+    [
+        "Nino Niederreiter",
+        "WPG",
+        "7",
+        "1",
+        "67",
+        "02:57",
+        "ARI"
+    ],
+    [
+        "Alex Chiasson",
+        "DET",
+        "4",
+        "1",
+        "8",
+        "02:40",
+        "STL"
+    ],
+    [
+        "Andrew Copp",
+        "DET",
+        "4",
+        "2",
+        "69",
+        "01:29",
+        "STL"
+    ],
+    [
+        "Justin Faulk",
+        "STL",
+        "7",
+        "2",
+        "69",
+        "01:32",
+        "DET"
+    ],
+    [
+        "Kasperi Kapanen",
+        "STL",
+        "6",
+        "2",
+        "53",
+        "01:25",
+        "DET"
+    ],
+    [
+        "Brandon Saad",
+        "STL",
+        "2",
+        "2",
+        "58",
+        "01:44",
+        "DET"
+    ],
+    [
+        "Jakub Vrana",
+        "STL",
+        "3",
+        "1",
+        "12",
+        "01:56",
+        "DET"
+    ],
+    [
+        "Oliver Bjorkstrand",
+        "SEA",
+        "7",
+        "1",
+        "69",
+        "02:42",
+        "DAL"
+    ],
+    [
+        "Yanni Gourde",
+        "SEA",
+        "2",
+        "2",
+        "68",
+        "01:49",
+        "DAL"
+    ],
+    [
+        "Jaden Schwartz",
+        "SEA",
+        "6",
+        "2",
+        "60",
+        "01:52",
+        "DAL"
+    ],
+    [
+        "Eeli Tolvanen",
+        "SEA",
+        "5",
+        "1",
+        "48",
+        "02:39",
+        "DAL"
+    ],
+    [
+        "Evgenii Dadonov",
+        "DAL",
+        "5",
+        "2",
+        "61",
+        "01:12",
+        "SEA"
+    ],
+    [
+        "Wyatt Johnston",
+        "DAL",
+        "6",
+        "2",
+        "70",
+        "01:11",
+        "SEA"
+    ],
+    [
+        "Andrew Mangiapane",
+        "CGY",
+        "2",
+        "2",
+        "71",
+        "01:31",
+        "ANH"
+    ],
+    [
+        "Dillon Dube",
+        "CGY",
+        "4",
+        "2",
+        "71",
+        "01:14",
+        "ANH"
+    ],
+    [
+        "Jakob Pelletier",
+        "CGY",
+        "3",
+        "1",
+        "23",
+        "02:09",
+        "ANH"
+    ],
+    [
+        "Kevin Shattenkirk",
+        "ANH",
+        "6",
+        "2",
+        "63",
+        "01:06",
+        "CGY"
+    ],
+    [
+        "Ryan Strome",
+        "ANH",
+        "3",
+        "1",
+        "70",
+        "01:30",
+        "CGY"
+    ],
+    [
+        "Frank Vatrano",
+        "ANH",
+        "7",
+        "2",
+        "70",
+        "01:04",
+        "CGY"
+    ],
+    [
+        "Ivan Barbashev",
+        "VGK",
+        "4",
+        "1",
+        "70",
+        "02:21",
+        "VAN"
+    ],
+    [
+        "Anthony Beauvillier",
+        "VAN",
+        "3",
+        "1",
+        "69",
+        "02:46",
+        "VGK"
+    ]
+]
