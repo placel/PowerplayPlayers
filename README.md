@@ -3,9 +3,10 @@ Scrape the list of betable powerplay players in the NHL for bet365. The table pr
 
 <b>Example:</b>
 
-Running the program will collect all the players that are eligable to bet on the under for powerplay points in a given game
+Running the program will collect all the players that are eligable to bet on the under for powerplay points in a given game. A locolhost:3000 website is available and can help choose the best players to bet on by showing teams stats
 
-![image](https://user-images.githubusercontent.com/59745407/213309543-e56677be-7e30-4bf9-bcc3-718a50366597.png)
+![image](https://user-images.githubusercontent.com/59745407/226705289-4ef08bd3-af9e-4f1c-8392-befae6b0bf20.png)
+
 
 A player with low powerplay points, low avgPowerplayToi, and is on the second powerplay unit is most desirable for a bet as it is unlikley they will get a powerplay point in a game
 
