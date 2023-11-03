@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-    <title>Bums</title>
+    <title>Hockey Bums</title>
 </head>
 <body>
     <div style="display: inline;">
@@ -65,6 +65,10 @@
     };
 
     async function getFile(name) {
+        // const data = await fetch(`http://localhost:3000/${name}`).then(res => res.json());
+        // const data = await fetch(`http://192.168.0.14:3000/${name}`).then(res => res.json());
+        // const data = await fetch(`http://192.168.2.47:3000/${name}`).then(res => res.json());
+        // const data = await fetch(`http://192.168.137.252:3000/${name}`).then(res => res.json());
         const data = await fetch(`http://localhost:3000/${name}`).then(res => res.json());
         return data;
     }
@@ -79,7 +83,7 @@
         searchBars[searchA].value = TEAMS[teamA];
         searchBars[searchB].value = TEAMS[teamB];
 
-        // Dispathching an 'input' event updates the search bars so that results are seen instantly
+        // Dispatching an 'input' event updates the search bars so that results are seen instantly
         searchBars.forEach((s) => {
             s.dispatchEvent(new Event('input'));
         })
@@ -101,7 +105,7 @@
         for(let i = 0; i < list.length; i++) {
             const htmlButton = `
                 <center>
-                    <button class"btn-success"" onclick="expandButton('${list[i][1]}', '${list[i][6]}')">SHOW</button>
+                    <button class"btn-success"" onclick="expandButton('${list[i][1]}', '${list[i][7]}')">SHOW</button>
                     <button onclick="closeButton()">HIDE</button>
                 </center>`;
             list[i].push(htmlButton);
@@ -137,6 +141,7 @@
                 { title: 'Team' },
                 { title: 'PP Points.' },
                 { title: 'PP Unit' },
+                { title: 'Position' },
                 { title: 'Games Played' },
                 { title: 'Avg Powerplay TOI' },
                 { title: 'VS' },

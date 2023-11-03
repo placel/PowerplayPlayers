@@ -15,6 +15,12 @@ from subprocess import STDOUT, Popen, PIPE
                                                         # Replace date with current year
 # https://www.nhl.com/stats/skaters?reportType=season&seasonFrom=2022&seasonTo=2022&gameType=2&filter=gamesPlayed,gte,1&sort=ppPoints&page=6&pageSize=100
 
+
+######################################
+# Update this every season; used in get_rosters()
+CURRENT_SEASON = '20232024'
+#
+###################################
 sys.path.append('.')
 chrome_options = Options()
 chrome_options.add_argument('--disable-blink-features=AutomationControlled')
@@ -50,6 +56,7 @@ def dailyfaceoff(team_a, team_b, a_players, b_players):
 
     # https://www.dailyfaceoff.com/
     for i in range(0, 2):
+        # print('https://www.dailyfaceoff.com' + df_pp_units[i])
         req = requests.get('https://www.dailyfaceoff.com' + df_pp_units[i], headers=headers)
         soup = BeautifulSoup(req.text, 'html.parser')
 
@@ -90,49 +97,76 @@ def dailyfaceoff(team_a, team_b, a_players, b_players):
 
     return   
 
+def get_team_abbrev(team):
+    team_list = {
+        'bruins': 'BOS',
+        'sabres': 'BUF',
+        'redwings': 'DET',
+        'panthers': 'FLA',
+        'canadiens': 'MTL',
+        'senators': 'OTT',
+        'lightning': 'TBL',
+        'mapleleafs': 'TOR',
+        'hurricanes': 'CAR',
+        'bluejackets': 'CBJ',
+        'devils': 'NJD',
+        'islanders': 'NYI',
+        'rangers': 'NYR',
+        'flyers': 'PHI',
+        'penguins': 'PIT',
+        'capitals': 'WSH',
+        'coyotes': 'ARI',
+        'blackhawks': 'CHI',
+        'avalanche': 'COL',
+        'stars': 'DAL',
+        'wild': 'MIN',
+        'predators': 'NSH',
+        'blues': 'STL',
+        'jets': 'WPG',
+        'ducks': 'ANA',
+        'flames': 'CGY',
+        'oilers': 'EDM',
+        'kings': 'LAK',
+        'sharks': 'SJS',
+        'canucks': 'VAN',
+        'goldenknights': 'VGK',
+        'kraken': 'SEA'
+    }
+
+    return team_list[team]
+
 def get_rosters(team_a, team_b, powerplayers):
     a_roster = []
     b_roster = []
+    
+    original_team_a = team_a
+    original_team_b = team_b
+    
+    team_a = team_a.replace('-', '')
+    team_b = team_b.replace('-', '')
 
-    urls= ['https://www.nhl.com/' + team_a.replace('-', '') + '/roster/' + str(date.today().strftime('%y')), 
-         'https://www.nhl.com/' + team_b.replace('-', '') + '/roster/' + str(date.today().strftime('%y'))]
+    urls = [
+        f'https://api-web.nhle.com/v1/roster/{get_team_abbrev(team_a)}/{CURRENT_SEASON}',
+        f'https://api-web.nhle.com/v1/roster/{get_team_abbrev(team_b)}/{CURRENT_SEASON}'
+    ]
 
     for k in range(0, 2):
+
         req = requests.get(urls[k])
-        soup = BeautifulSoup(req.text, 'html.parser')
+        data = req.json()
 
-        offence = soup.find('table', class_='data-table__forwards')
-        defence = soup.find('table', class_='data-table__defensemen')
-
-        offence_first = offence.find_all('span', class_='name-col__firstName')
-        offence_last = offence.find_all('span', class_='name-col__lastName')
+        for i in data['forwards']:
+            player = f'{i["firstName"]["default"]} {i["lastName"]["default"]}'
+            a_roster.append(player) if k == 0 else b_roster.append(player)
         
-        defence_first = defence.find_all('span', class_='name-col__firstName')
-        defence_last = defence.find_all('span', class_='name-col__lastName')
-
-        # print("-------")
-        for i in range(0, len(offence_first)):
-            first = offence_first[i].text
-            last = offence_last[i].text
-            fullname = first + ' ' + last
-            if k == 0:
-                a_roster.append(fullname)
-            else:
-                b_roster.append(fullname)
-
-        for i in range(0, len(defence_first)):
-            first = defence_first[i].text
-            last = defence_last[i].text
-            fullname = first + ' ' + last
-            if k == 0:
-                a_roster.append(fullname)
-            else:
-                b_roster.append(fullname)
+        for i in data['defensemen']:
+            player = f'{i["firstName"]["default"]} {i["lastName"]["default"]}'
+            a_roster.append(player) if k == 0 else b_roster.append(player)
 
     a_team_bets = []
     b_team_bets = []
+
     for i in powerplayers:
-        # print(i)
         if i.strip() in a_roster:
             a_team_bets.append(i)
         elif i.strip() in b_roster:
@@ -141,7 +175,11 @@ def get_rosters(team_a, team_b, powerplayers):
         all_betable_players.append(i.strip())
 
     # get_pp_unit(team_a, team_b, a_team_bets, b_team_bets)
-    dailyfaceoff(team_a, team_b, a_team_bets, b_team_bets)
+
+
+    dailyfaceoff(original_team_a, original_team_b, a_team_bets, b_team_bets)
+    
+    
     # print('starting')
     # rotogrinders(team_a, team_b, a_team_bets, b_team_bets)
     return
@@ -263,7 +301,9 @@ if __name__ == "__main__":
 
     # Generates games.pickle file containing all needed information
     output = Popen(['python', 'src/py_testing.py'], stdout=PIPE, stderr = STDOUT)
-    output.wait()
+    # output.wait()
+    time.sleep(10)
+    print('DONE')
 
     pickle_open = open('lib/games.pickle', 'rb')
     games = pickle.load(pickle_open)
@@ -276,6 +316,7 @@ if __name__ == "__main__":
 
     get_bum_list(all_betable_players)
     
+    print('http://localhost:3000')
     node = Popen(['node', '.'], stdout=PIPE, stderr = STDOUT)
     node.wait()
     exit(0)

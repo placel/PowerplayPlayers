@@ -4,7 +4,7 @@ import os
 import pickle
 
 PROCESSOR_SPEED = 1
-INTERNET_SPEED = 1
+INTERNET_SPEED = 2
 
 os.popen('"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\selenum\ChromeProfile"')
 time.sleep(PROCESSOR_SPEED)
@@ -91,6 +91,8 @@ for i in range(len(players)):
 with open('./lib/games.pickle', 'wb') as f:
   pickle.dump(games, f)
   print('Pickled Games')
+
+exit(0)
 
 
 # os.popen('"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\selenum\ChromeProfile"')

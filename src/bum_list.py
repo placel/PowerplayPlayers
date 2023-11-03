@@ -6,8 +6,10 @@ import pickle
 import pandas
 from bs4 import BeautifulSoup
 
-PPP_LIMIT = 7
+PPP_LIMIT = 10
 pp_map = dict()
+
+CURRENT_SEASON = '20232024'
 
 TEAM_ABBREVS = {
     'BOS': 'BOS',
@@ -70,7 +72,6 @@ def write_to_csv(bum_list):
 
 def write_to_json(bum_list, team_list):
 
-    
     # Format the json for index.html use
     updated_bum_list = []
     for i in bum_list:
@@ -83,11 +84,17 @@ def write_to_json(bum_list, team_list):
         else:
             temp_abbrev = split_abbrev[0].strip()
 
+        # Used to differentiate between Centers, Leftwing, Rightwing, and Defencemen
+        position = str(i['position'])
+        if 'L' in position or 'R' in position:
+            position += "W"
+
         temp = [
             str(i['skaterFullName']),
             str(TEAM_ABBREVS[temp_abbrev]),
             str(i['ppPoints']),
             str(i['ppUnit']),
+            str(position),
             str(i['gamesPlayed']),
             str(i['avgPowerplayToi']),
             str(i['vs'])
@@ -102,12 +109,12 @@ def write_to_json(bum_list, team_list):
     for i in team_list:
         temp = [
             #i['TEAM']['imageUrl'],
-            i['TEAM']['display'],
-            i['PEN/GP']['display'],
-            i['PP%']['display'],
-            i['PK%']['display'],
-            i['G']['display'],
-            i['GA']['display'],
+            i['TEAM'],
+            i['PEN/GP'],
+            i['PP%'],
+            i['PK%'],
+            i['G'],
+            i['GA'],
         ]
 
         updated_team_list.append(temp)
@@ -134,16 +141,33 @@ def display_bums(players, team_stats):
 
 def get_team_stats():
     headers = { 'User-Agent': UserAgent().random }
-    req = requests.get('https://www.statmuse.com/nhl/ask/nhl-penalties-per-game-by-team-2023', headers=headers)
+    req = requests.get('https://www.statmuse.com/nhl/ask/nhl-penalties-per-game-by-team-2024', headers=headers)
     soup = BeautifulSoup(req.text, 'html.parser')
 
-    teams = json.loads(str(soup.find('visual-answer')['answer']).replace('&quot', "'"))
-    teams = teams['visual']['detail'][0]['grids'][0]['rows']
+    rows = soup.find_all('tr')[1:] # Take all except the first row (is the table header)
+
+    teams = []
+    for i in rows:
+        columns = i.find_all('td')
+
+        team = {
+            'TEAM': columns[0].text,
+            'PEN/GP': columns[3].text,
+            'PP%': columns[12].text,
+            'PK%': columns[13].text,
+            'G': columns[10].text,
+            'GA': columns[11].text
+        }
+
+        teams.append(team)
 
     return teams
 
 # https://www.geeksforgeeks.org/python-program-to-convert-seconds-into-hours-minutes-and-seconds/
 def convert_seconds(seconds):
+    if seconds == 'N/A':
+        return 'N/A'
+    
     seconds = seconds % (24 * 3600)
     seconds %= 3600
     minutes = seconds // 60
@@ -207,7 +231,10 @@ def get_pp_toi(players):
     last_5 = ''
     new_players = []
 
+    count = 0
     for p in players:
+        count += 1
+        print(f'Progress: ({count}/{len(players)}): {round((count/len(players) * 100))}%', end='\r')
         all_pp_toi = []
         req = requests.get('https://www.quanthockey.com/player-search.php?q=' + str(p['skaterFullName']), headers=headers)
         soup = BeautifulSoup(req.text, 'html.parser')
@@ -220,8 +247,11 @@ def get_pp_toi(players):
 
             if not soup:
                 continue
-
-            last_5 = soup.find('table', id='lg_stats').find_all('tr')
+            
+            try:
+                last_5 = soup.find('table', id='lg_stats').find_all('tr')
+            except:
+                continue
         
         # Goes though each row of the table, skipping the first and last (useless) and grabs the pp_toi from the 9th index of the 42 item long list of td
         for i in range(1, len(last_5) -1):
@@ -232,21 +262,29 @@ def get_pp_toi(players):
                 index += 1
                 if index == 9:
                     time = k.text
-                    m, s = time.split(':')
-                    time = int(m) * 60 + int(s)
+                    
+                    try:
+                        m, s = time.split(':')
+                        time = int(m) * 60 + int(s)
 
-                    all_pp_toi.append(int(time))
+                        all_pp_toi.append(int(time))
+                    except:
+                        all_pp_toi.append('N/A')
+
                     break
         
-        average_pp_toi = 0
-        for i in all_pp_toi:
-            average_pp_toi += i
-
-        # Handle dividing by 0 error
-        try:
-            average_pp_toi /= 5
-        except:
+        if 'N/A' not in all_pp_toi:
             average_pp_toi = 0
+            for i in all_pp_toi:
+                average_pp_toi += i
+
+            # Handle dividing by 0 error
+            try:
+                average_pp_toi /= 5
+            except:
+                average_pp_toi = 0
+        else:
+            average_pp_toi = 'N/A'
 
         temp_player = p
         temp_player.update({'avgPowerplayToi': convert_seconds(average_pp_toi)})
@@ -265,6 +303,7 @@ def rotogrinders(players):
 
 
     all_players = soup.find_all('span', 'pname')
+
     filtered_players_name = []
     filtered_players_ppUnit = dict()
 
@@ -291,6 +330,8 @@ def rotogrinders(players):
 
         filtered_players_name.append(name)
         filtered_players_ppUnit[name.split('. ')[1][0:5].strip()] = ppUnit
+    
+
 
     for i in range(0, len(players)):
         last_name = players[i]['skaterFullName'].split(' ', 1)[1].strip()
@@ -302,6 +343,7 @@ def rotogrinders(players):
             temp_player = players[i]
             temp_player.update({'ppUnit': ppUnit})
 
+            # print(f'Player: {temp_player["teamAbbrevs"]}')
             playing_against = ''
             for i in team_abbrevs:
                 temp_abbrev = temp_player['teamAbbrevs']
@@ -323,7 +365,7 @@ def rotogrinders(players):
                 else:
                     playing_against = str(i[0]).upper()
                     break
-
+                        
             temp_player.update({'vs': playing_against})
             new_players.append(temp_player)
     
@@ -333,12 +375,13 @@ def get_bum_list(players):
     bum_list = []
     YEAR = date.today().strftime('%y')
     START_URL = f'https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22ppPoints%22,%22direction%22%3A%22DESC%22%7D,%7B%22property%22%3A%22playerId%22,%22direction%22%3A%22ASC%22%7D%5D&'
-    END_URL = f'&factCayenneExp=gamesPlayed%3E%3D1&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20222023%20and%20seasonId%3E%3D20222023'
+    END_URL = f'&factCayenneExp=gamesPlayed%3E%3D1&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D{CURRENT_SEASON}%20and%20seasonId%3E%3D{CURRENT_SEASON}'
     UserAgent().random
 
     all_players = []
     index = 0
     while True:
+        print(START_URL + f'start={index}00&limit={index + 1}00' + END_URL)
         req = requests.get(START_URL + f'start={index}00&limit={index + 1}00' + END_URL) # Grabs a list of players; Place index number inside url to creat limits like 200 - 300 whn index is 2
         current = json.loads(req.content)['data']
         all_players += current
@@ -347,7 +390,7 @@ def get_bum_list(players):
         # If no more players are returned through the URL, break        
         if len(current) == 0:
             break
-
+    
     filter_pp(all_players)
     for i in players:
         if i.replace('ö', 'o').strip() in pp_map.keys(): # replace is for Emil Bemstrom
@@ -360,6 +403,8 @@ def get_bum_list(players):
 
     bum_list = rotogrinders(bum_list)
     bum_list = get_pp_toi(bum_list)
+
+
     team_stats = get_team_stats()
     display_bums(bum_list, team_stats)
     # display_bums(bum_list)
