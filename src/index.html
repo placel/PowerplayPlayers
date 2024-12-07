@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-  
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
     <title>Hockey Bums</title>
 </head>
 <body>
     <div style="display: inline;">
         <div style="width: 100%;">
-            <table id="bumList" class="display"></table>
+            <table id="bumList" class="display" width="100%"></table>
         </div>
         <div style="width: 100%;">
             <table id="teamListOne" class="display"></table>
@@ -34,12 +33,12 @@
         'FLA': 'Florida Panthers',
         'MON': 'Montreal Canadiens',
         'OTT': 'Ottawa Senators',
-        'TB': 'Tampa Bay Lightning',
+        'TBL': 'Tampa Bay Lightning',
         'TOR': 'Toronto Maple Leafs',
         'CAR': 'Carolina Hurricanes',
         'CBJ': 'Columbus Blue Jackets',
         'CLS': 'Columbus Blue Jackets',
-        'NJ': 'New Jersey Devils',
+        'NJD': 'New Jersey Devils',
         'NJD': 'New Jersey Devils',
         'NYI': 'New York Islanders',
         'NYR': 'New York rangers',
@@ -57,8 +56,8 @@
         'ANH': 'Anaheim Ducks',
         'CGY': 'Calgary Flames',
         'EDM': 'Edmonton Oilers',
-        'LA': 'Los Angeles Kings',
-        'SJ': 'San Jose Sharks',
+        'LAK': 'Los Angeles Kings',
+        'SJS': 'San Jose Sharks',
         'VAN': 'Vancouver Canucks',
         'VGK': 'Vegas Golden Knights',
         'SEA': 'Seattle Kraken',
@@ -69,6 +68,7 @@
         // const data = await fetch(`http://192.168.0.14:3000/${name}`).then(res => res.json());
         // const data = await fetch(`http://192.168.2.47:3000/${name}`).then(res => res.json());
         // const data = await fetch(`http://192.168.137.252:3000/${name}`).then(res => res.json());
+        // const data = await fetch(`http://localhost:3000/${name}`).then(res => res.json());
         const data = await fetch(`http://localhost:3000/${name}`).then(res => res.json());
         return data;
     }
@@ -130,8 +130,6 @@
         const teamList = await getFile('teamList.json');
 
         const bumList = processPlayers(tempBumList);
-
-
 
         $('#bumList').DataTable({
             data: tempBumList,

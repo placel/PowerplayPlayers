@@ -8,7 +8,7 @@ INTERNET_SPEED = 2
 
 os.popen('"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\selenum\ChromeProfile"')
 time.sleep(PROCESSOR_SPEED)
-pa.write('https://www.on.bet365.ca/#/AS/B17/')
+pa.write('https://www.on.bet365.ca/#/AC/B17/C1/D1002/G170603/Q1/F^24/N6/')
 pa.press('enter')
 
 time.sleep(INTERNET_SPEED)
@@ -21,41 +21,8 @@ time.sleep(INTERNET_SPEED)
 
 from subprocess import STDOUT, Popen, PIPE
 
-output = Popen(['python', 'src/debug_one.py'], stdout=PIPE, stderr = STDOUT)
-new_url = ''
-
-# https://stackoverflow.com/questions/803265/getting-realtime-output-using-subprocess
-while True:
-  line = output.stdout.readline()
-
-  if 'https://' in str(line):
-    new_url = str(line).replace("\\r\\n'", '').replace("b'", '')
-    print(new_url)
-    break
-  print(str(line).replace("\\r\\n'", '').replace("b'", ''))
-  if not line: break
-  ...
-
-# Create new tab
-pa.keyDown('ctrl')
-pa.press('t')
-pa.keyUp('ctrl')
-
-# Paste URL and GO
-pa.write(new_url)
-pa.press('enter')
-
-# Close unused tab
-pa.keyDown('ctrl')
-pa.keyDown('shift')
-pa.press('tab')
-pa.keyUp('shift')
-pa.press('w')
-pa.keyUp('ctrl')
-
-time.sleep(INTERNET_SPEED)
-
 output = Popen(['python', 'src/debug_two.py'], stdout=PIPE, stderr = STDOUT)
+
 players = []
 print('done')
 # https://stackoverflow.com/questions/803265/getting-realtime-output-using-subprocess
@@ -65,13 +32,12 @@ while True:
     player_string = str(line).replace("b'EX", '').replace("\\r\\n'", '').replace("\\xf6", 'ö')
     players = player_string.split('|')
     players.pop()
-    print(players)
     break
 
-  print(str(line).replace("\\r\\n'", '').replace("b'", ''))
   if not line: break
   ...
 
+print(players)
 # Close Chrome window
 pa.keyDown('ctrl')
 pa.press('w')
@@ -95,6 +61,7 @@ for i in range(len(players)):
   else:
     continue
 
+print(games)
 with open('./lib/games.pickle', 'wb') as f:
   pickle.dump(games, f)
   print('Pickled Games')

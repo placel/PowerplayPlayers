@@ -18,7 +18,7 @@ from subprocess import STDOUT, Popen, PIPE
 
 ######################################
 # Update this every season; used in get_rosters()
-CURRENT_SEASON = '20232024'
+CURRENT_SEASON = '20242025'
 #
 ###################################
 sys.path.append('.')
@@ -57,7 +57,12 @@ def dailyfaceoff(team_a, team_b, a_players, b_players):
     # https://www.dailyfaceoff.com/
     for i in range(0, 2):
         # print('https://www.dailyfaceoff.com' + df_pp_units[i])
-        req = requests.get('https://www.dailyfaceoff.com' + df_pp_units[i], headers=headers)
+        try:
+            req = requests.get('https://www.dailyfaceoff.com' + df_pp_units[i], headers=headers)
+        except IndexError as e:
+            print('Index Error')
+            continue
+        
         soup = BeautifulSoup(req.text, 'html.parser')
 
         data = soup.find_all('div', 'w-1/3')
@@ -298,9 +303,9 @@ def get_pp_bets(teams_text, powerplayers):
 #     return
 
 if __name__ == "__main__":
-
+    # time.sleep((60 * 60)*8+(60*20))
     # Generates games.pickle file containing all needed information
-    output = Popen(['python', 'src/py_testing.py'], stdout=PIPE, stderr = STDOUT)
+    output = Popen(['python', 'src/daily_scrape.py'], stdout=PIPE, stderr = STDOUT)
     # output.wait()
     time.sleep(10)
     print('DONE')
@@ -314,6 +319,7 @@ if __name__ == "__main__":
         team_text = g.pop(0)
         get_pp_bets(teams_text=team_text, powerplayers=g)
 
+    # all_betable_players is just a list of player names
     get_bum_list(all_betable_players)
     
     print('http://localhost:3000')
