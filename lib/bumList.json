@@ -1,633 +1,133 @@
 [
     [
-        "William Eklund",
-        "SJS",
-        "6",
+        "Connor Bedard",
+        "CHI",
+        "12",
         "1",
-        "LW",
-        "28",
-        "01:47",
-        "FLA"
+        "C",
+        "29",
+        "02:47",
+        "NJD"
     ],
     [
-        "Mikael Granlund",
-        "SJS",
+        "Tyler Bertuzzi",
+        "CHI",
+        "5",
+        "1",
+        "LW",
+        "29",
+        "02:41",
+        "NJD"
+    ],
+    [
+        "Ryan Donato",
+        "CHI",
+        "4",
+        "2",
+        "C",
+        "27",
+        "02:38",
+        "NJD"
+    ],
+    [
+        "Teuvo Teravainen",
+        "CHI",
         "9",
         "1",
         "C",
-        "27",
-        "03:14",
-        "FLA"
-    ],
-    [
-        "Tyler Toffoli",
-        "SJS",
-        "6",
-        "1",
-        "C",
         "29",
-        "02:19",
-        "FLA"
-    ],
-    [
-        "Jake Walman",
-        "SJS",
-        "3",
-        "2",
-        "D",
-        "24",
-        "02:06",
-        "FLA"
-    ],
-    [
-        "Fabian Zetterlund",
-        "SJS",
-        "3",
-        "2",
-        "LW",
-        "29",
-        "01:17",
-        "FLA"
-    ],
-    [
-        "Aleksander Barkov",
-        "FLA",
-        "10",
-        "1",
-        "C",
-        "19",
-        "03:44",
-        "SJS"
-    ],
-    [
-        "Sam Bennett",
-        "FLA",
-        "6",
-        "2",
-        "C",
-        "26",
-        "01:37",
-        "SJS"
-    ],
-    [
-        "Aaron Ekblad",
-        "FLA",
-        "4",
-        "1",
-        "D",
-        "27",
-        "03:18",
-        "SJS"
-    ],
-    [
-        "Sam Reinhart",
-        "FLA",
-        "11",
-        "1",
-        "C",
-        "27",
-        "03:50",
-        "SJS"
-    ],
-    [
-        "Evan Rodrigues",
-        "FLA",
-        "3",
-        "2",
-        "C",
-        "27",
-        "01:21",
-        "SJS"
-    ],
-    [
-        "Matthew Tkachuk",
-        "FLA",
-        "12",
-        "1",
-        "LW",
-        "22",
-        "04:18",
-        "SJS"
-    ],
-    [
-        "Carter Verhaeghe",
-        "FLA",
-        "10",
-        "1",
-        "C",
-        "27",
         "02:35",
-        "SJS"
+        "NJD"
     ],
     [
-        "Ross Colton",
-        "COL",
-        "5",
-        "2",
-        "C",
-        "10",
-        "03:34",
-        "DET"
-    ],
-    [
-        "Artturi Lehkonen",
-        "COL",
-        "2",
-        "1",
-        "LW",
-        "15",
-        "01:58",
-        "DET"
-    ],
-    [
-        "Nathan MacKinnon",
-        "COL",
-        "13",
-        "1",
-        "C",
-        "27",
-        "04:33",
-        "DET"
-    ],
-    [
-        "Cale Makar",
-        "COL",
-        "14",
+        "Alex Vlasic",
+        "CHI",
+        "8",
         "1",
         "D",
-        "27",
-        "04:16",
-        "DET"
+        "29",
+        "02:37",
+        "NJD"
     ],
     [
-        "Casey Mittelstadt",
-        "COL",
-        "9",
-        "2",
-        "C",
-        "27",
-        "03:04",
-        "DET"
-    ],
-    [
-        "Valeri Nichushkin",
-        "COL",
+        "Jesper Bratt",
+        "NJD",
+        "17",
         "1",
-        "1",
-        "RW",
-        "10",
-        "04:27",
-        "DET"
+        "LW",
+        "32",
+        "03:21",
+        "CHI"
     ],
     [
-        "Mikko Rantanen",
-        "COL",
+        "Dougie Hamilton",
+        "NJD",
         "12",
         "1",
-        "RW",
-        "27",
-        "04:32",
-        "DET"
+        "D",
+        "32",
+        "03:22",
+        "CHI"
     ],
     [
-        "Devon Toews",
-        "COL",
-        "0",
+        "Nico Hischier",
+        "NJD",
+        "11",
+        "1",
+        "C",
+        "32",
+        "03:27",
+        "CHI"
+    ],
+    [
+        "Jack Hughes",
+        "NJD",
+        "17",
+        "1",
+        "C",
+        "32",
+        "03:46",
+        "CHI"
+    ],
+    [
+        "Luke Hughes",
+        "NJD",
+        "3",
         "2",
         "D",
         "23",
-        "01:15",
-        "DET"
-    ],
-    [
-        "Alex DeBrincat",
-        "DET",
-        "11",
-        "1",
-        "RW",
-        "26",
-        "03:47",
-        "COL"
-    ],
-    [
-        "Patrick Kane",
-        "DET",
-        "5",
-        "2",
-        "RW",
-        "21",
-        "02:30",
-        "COL"
-    ],
-    [
-        "Dylan Larkin",
-        "DET",
-        "9",
-        "1",
-        "C",
-        "26",
-        "04:18",
-        "COL"
-    ],
-    [
-        "Lucas Raymond",
-        "DET",
-        "13",
-        "1",
-        "LW",
-        "26",
-        "04:18",
-        "COL"
-    ],
-    [
-        "Moritz Seider",
-        "DET",
-        "5",
-        "1",
-        "D",
-        "26",
-        "03:39",
-        "COL"
-    ],
-    [
-        "Filip Forsberg",
-        "NSH",
-        "8",
-        "1",
-        "LW",
-        "27",
-        "03:07",
-        "OTT"
-    ],
-    [
-        "Roman Josi",
-        "NSH",
-        "10",
-        "1",
-        "D",
-        "27",
-        "03:10",
-        "OTT"
-    ],
-    [
-        "Jonathan Marchessault",
-        "NSH",
-        "7",
-        "1",
-        "RW",
-        "27",
-        "03:10",
-        "OTT"
-    ],
-    [
-        "Gustav Nyquist",
-        "NSH",
-        "0",
-        "1",
-        "RW",
-        "27",
-        "01:57",
-        "OTT"
-    ],
-    [
-        "Steven Stamkos",
-        "NSH",
-        "10",
-        "1",
-        "C",
-        "27",
-        "03:30",
-        "OTT"
-    ],
-    [
-        "Drake Batherson",
-        "OTT",
-        "12",
-        "1",
-        "RW",
-        "25",
-        "04:25",
-        "NSH"
-    ],
-    [
-        "Thomas Chabot",
-        "OTT",
-        "2",
-        "2",
-        "D",
-        "25",
-        "01:43",
-        "NSH"
-    ],
-    [
-        "Claude Giroux",
-        "OTT",
-        "6",
-        "2",
-        "RW",
-        "25",
-        "02:01",
-        "NSH"
-    ],
-    [
-        "Josh Norris",
-        "OTT",
-        "6",
-        "1",
-        "C",
-        "25",
-        "04:10",
-        "NSH"
-    ],
-    [
-        "Jake Sanderson",
-        "OTT",
-        "11",
-        "1",
-        "D",
-        "25",
-        "04:36",
-        "NSH"
-    ],
-    [
-        "Brady Tkachuk",
-        "OTT",
-        "11",
-        "1",
-        "LW",
-        "25",
-        "04:31",
-        "NSH"
-    ],
-    [
-        "Matthew Knies",
-        "TOR",
-        "4",
-        "1",
-        "LW",
-        "23",
-        "01:36",
-        "PIT"
-    ],
-    [
-        "Auston Matthews",
-        "TOR",
-        "4",
-        "1",
-        "C",
-        "16",
-        "02:06",
-        "PIT"
-    ],
-    [
-        "William Nylander",
-        "TOR",
-        "12",
-        "1",
-        "RW",
-        "25",
-        "02:56",
-        "PIT"
-    ],
-    [
-        "Morgan Rielly",
-        "TOR",
-        "7",
-        "2",
-        "D",
-        "25",
-        "01:31",
-        "PIT"
-    ],
-    [
-        "John Tavares",
-        "TOR",
-        "4",
-        "1",
-        "C",
-        "24",
-        "02:12",
-        "PIT"
-    ],
-    [
-        "Michael Bunting",
-        "PIT",
-        "4",
-        "2",
-        "LW",
-        "26",
-        "02:08",
-        "TOR"
-    ],
-    [
-        "Sidney Crosby",
-        "PIT",
-        "8",
-        "1",
-        "C",
-        "27",
-        "03:30",
-        "TOR"
-    ],
-    [
-        "Erik Karlsson",
-        "PIT",
-        "6",
-        "1",
-        "D",
-        "27",
-        "03:07",
-        "TOR"
-    ],
-    [
-        "Kris Letang",
-        "PIT",
-        "6",
-        "2",
-        "D",
-        "24",
-        "02:25",
-        "TOR"
-    ],
-    [
-        "Evgeni Malkin",
-        "PIT",
-        "7",
-        "1",
-        "C",
-        "27",
-        "02:56",
-        "TOR"
-    ],
-    [
-        "Rickard Rakell",
-        "PIT",
-        "3",
-        "1",
-        "RW",
-        "27",
-        "03:09",
-        "TOR"
-    ],
-    [
-        "Bryan Rust",
-        "PIT",
-        "3",
-        "1",
-        "RW",
-        "20",
-        "03:13",
-        "TOR"
-    ],
-    [
-        "John Carlson",
-        "WSH",
-        "7",
-        "1",
-        "D",
-        "25",
-        "03:37",
-        "MTL"
-    ],
-    [
-        "Jakob Chychrun",
-        "WSH",
-        "4",
-        "1",
-        "D",
-        "20",
-        "03:34",
-        "MTL"
-    ],
-    [
-        "Pierre-Luc Dubois",
-        "WSH",
-        "3",
-        "2",
-        "LW",
-        "25",
-        "01:47",
-        "MTL"
-    ],
-    [
-        "Connor McMichael",
-        "WSH",
-        "5",
-        "1",
-        "C",
-        "25",
-        "03:47",
-        "MTL"
-    ],
-    [
-        "Dylan Strome",
-        "WSH",
-        "11",
-        "1",
-        "C",
-        "25",
-        "03:31",
-        "MTL"
-    ],
-    [
-        "Tom Wilson",
-        "WSH",
-        "6",
-        "1",
-        "RW",
-        "25",
-        "03:40",
-        "MTL"
-    ],
-    [
-        "Cole Caufield",
-        "MTL",
-        "8",
-        "1",
-        "RW",
-        "26",
-        "02:42",
-        "WSH"
-    ],
-    [
-        "Kirby Dach",
-        "MTL",
-        "4",
-        "2",
-        "C",
-        "26",
         "01:49",
-        "WSH"
+        "CHI"
     ],
     [
-        "Patrik Laine",
-        "MTL",
-        "2",
-        "1",
-        "LW",
-        "2",
-        "02:25",
-        "WSH"
-    ],
-    [
-        "Mike Matheson",
-        "MTL",
-        "7",
-        "2",
-        "D",
-        "24",
-        "01:46",
-        "WSH"
-    ],
-    [
-        "Juraj Slafkovsky",
-        "MTL",
-        "5",
-        "1",
-        "LW",
-        "23",
-        "02:43",
-        "WSH"
-    ],
-    [
-        "Brock Faber",
-        "MIN",
+        "Timo Meier",
+        "NJD",
         "5",
         "2",
-        "D",
-        "25",
-        "00:40",
-        "LAK"
+        "RW",
+        "31",
+        "01:42",
+        "CHI"
     ],
     [
-        "Kirill Kaprizov",
-        "MIN",
+        "Dawson Mercer",
+        "NJD",
+        "1",
+        "2",
+        "C",
+        "32",
+        "01:36",
+        "CHI"
+    ],
+    [
+        "Stefan Noesen",
+        "NJD",
         "9",
         "1",
-        "LW",
-        "24",
-        "02:12",
-        "LAK"
-    ],
-    [
-        "Marco Rossi",
-        "MIN",
-        "4",
-        "1",
-        "C",
-        "25",
-        "01:45",
-        "LAK"
-    ],
-    [
-        "Jared Spurgeon",
-        "MIN",
-        "2",
-        "1",
-        "D",
-        "19",
-        "02:05",
-        "LAK"
+        "RW",
+        "32",
+        "03:17",
+        "CHI"
     ],
     [
         "Quinton Byfield",
@@ -635,39 +135,19 @@
         "2",
         "1",
         "RW",
-        "26",
-        "02:33",
-        "MIN"
-    ],
-    [
-        "Brandt Clarke",
-        "LAK",
-        "6",
-        "1",
-        "D",
-        "26",
-        "01:39",
-        "MIN"
-    ],
-    [
-        "Phillip Danault",
-        "LAK",
-        "0",
-        "2",
-        "C",
-        "26",
-        "01:11",
-        "MIN"
+        "29",
+        "01:54",
+        "NYR"
     ],
     [
         "Kevin Fiala",
         "LAK",
-        "9",
+        "10",
         "1",
         "LW",
-        "25",
-        "02:41",
-        "MIN"
+        "28",
+        "02:25",
+        "NYR"
     ],
     [
         "Adrian Kempe",
@@ -675,9 +155,9 @@
         "5",
         "1",
         "RW",
-        "26",
-        "02:40",
-        "MIN"
+        "29",
+        "01:54",
+        "NYR"
     ],
     [
         "Anze Kopitar",
@@ -685,108 +165,1618 @@
         "10",
         "1",
         "C",
-        "26",
-        "02:35",
-        "MIN"
+        "29",
+        "01:55",
+        "NYR"
     ],
     [
         "Alex Laferriere",
         "LAK",
-        "3",
+        "4",
         "2",
         "RW",
-        "26",
-        "02:02",
-        "MIN"
+        "29",
+        "01:10",
+        "NYR"
     ],
     [
-        "Pavel Buchnevich",
-        "STL",
+        "Adam Fox",
+        "NYR",
+        "11",
+        "1",
+        "D",
+        "28",
+        "03:25",
+        "LAK"
+    ],
+    [
+        "Chris Kreider",
+        "NYR",
         "4",
         "1",
         "LW",
         "25",
-        "01:50",
-        "EDM"
+        "03:36",
+        "LAK"
     ],
     [
-        "Jordan Kyrou",
-        "STL",
-        "4",
+        "Artemi Panarin",
+        "NYR",
+        "12",
+        "1",
+        "LW",
+        "28",
+        "03:39",
+        "LAK"
+    ],
+    [
+        "Vincent Trocheck",
+        "NYR",
+        "6",
         "1",
         "C",
-        "27",
-        "03:21",
+        "28",
+        "03:39",
+        "LAK"
+    ],
+    [
+        "Mika Zibanejad",
+        "NYR",
+        "7",
+        "1",
+        "C",
+        "28",
+        "03:32",
+        "LAK"
+    ],
+    [
+        "Sean Couturier",
+        "PHI",
+        "1",
+        "1",
+        "C",
+        "29",
+        "02:31",
+        "MIN"
+    ],
+    [
+        "Jamie Drysdale",
+        "PHI",
+        "3",
+        "1",
+        "D",
+        "18",
+        "02:00",
+        "MIN"
+    ],
+    [
+        "Joel Farabee",
+        "PHI",
+        "3",
+        "2",
+        "LW",
+        "30",
+        "01:19",
+        "MIN"
+    ],
+    [
+        "Morgan Frost",
+        "PHI",
+        "4",
+        "2",
+        "C",
+        "26",
+        "01:20",
+        "MIN"
+    ],
+    [
+        "Travis Konecny",
+        "PHI",
+        "8",
+        "1",
+        "RW",
+        "30",
+        "02:38",
+        "MIN"
+    ],
+    [
+        "Matvei Michkov",
+        "PHI",
+        "12",
+        "1",
+        "RW",
+        "28",
+        "02:42",
+        "MIN"
+    ],
+    [
+        "Owen Tippett",
+        "PHI",
+        "4",
+        "2",
+        "RW",
+        "30",
+        "01:23",
+        "MIN"
+    ],
+    [
+        "Brock Faber",
+        "MIN",
+        "6",
+        "2",
+        "D",
+        "29",
+        "00:38",
+        "PHI"
+    ],
+    [
+        "Kirill Kaprizov",
+        "MIN",
+        "10",
+        "1",
+        "LW",
+        "28",
+        "02:42",
+        "PHI"
+    ],
+    [
+        "Marco Rossi",
+        "MIN",
+        "5",
+        "1",
+        "C",
+        "29",
+        "02:37",
+        "PHI"
+    ],
+    [
+        "Jared Spurgeon",
+        "MIN",
+        "3",
+        "1",
+        "D",
+        "23",
+        "02:41",
+        "PHI"
+    ],
+    [
+        "Jack Eichel",
+        "VGK",
+        "12",
+        "1",
+        "C",
+        "29",
+        "03:41",
         "EDM"
     ],
     [
-        "Jake Neighbours",
-        "STL",
+        "Tomas Hertl",
+        "VGK",
+        "11",
+        "1",
+        "C",
+        "29",
+        "03:37",
+        "EDM"
+    ],
+    [
+        "William Karlsson",
+        "VGK",
+        "2",
+        "2",
+        "C",
+        "20",
+        "02:21",
+        "EDM"
+    ],
+    [
+        "Victor Olofsson",
+        "VGK",
         "3",
         "1",
         "LW",
-        "27",
-        "03:23",
+        "9",
+        "02:19",
         "EDM"
     ],
     [
-        "Robert Thomas",
-        "STL",
-        "3",
+        "Mark Stone",
+        "VGK",
+        "10",
         "1",
-        "C",
+        "RW",
         "15",
-        "03:33",
+        "03:10",
+        "EDM"
+    ],
+    [
+        "Shea Theodore",
+        "VGK",
+        "10",
+        "1",
+        "D",
+        "28",
+        "03:29",
         "EDM"
     ],
     [
         "Evan Bouchard",
         "EDM",
-        "5",
+        "6",
         "1",
         "D",
-        "26",
-        "02:59",
-        "STL"
+        "29",
+        "02:36",
+        "VGK"
     ],
     [
         "Leon Draisaitl",
         "EDM",
-        "8",
+        "11",
         "1",
         "C",
-        "26",
-        "03:12",
-        "STL"
+        "29",
+        "02:34",
+        "VGK"
     ],
     [
         "Zach Hyman",
         "EDM",
-        "3",
+        "5",
         "1",
         "LW",
-        "21",
-        "04:10",
-        "STL"
+        "24",
+        "03:03",
+        "VGK"
     ],
     [
         "Connor McDavid",
         "EDM",
-        "9",
+        "11",
         "1",
         "C",
-        "23",
-        "03:11",
-        "STL"
+        "26",
+        "02:37",
+        "VGK"
     ],
     [
         "Ryan Nugent-Hopkins",
         "EDM",
+        "5",
+        "1",
+        "C",
+        "29",
+        "02:32",
+        "VGK"
+    ],
+    [
+        "Leo Carlsson",
+        "ANA",
+        "3",
+        "1",
+        "C",
+        "22",
+        "02:03",
+        "CBJ"
+    ],
+    [
+        "Cutter Gauthier",
+        "ANA",
+        "4",
+        "2",
+        "LW",
+        "28",
+        "01:23",
+        "CBJ"
+    ],
+    [
+        "Alex Killorn",
+        "ANA",
+        "3",
+        "2",
+        "LW",
+        "28",
+        "02:35",
+        "CBJ"
+    ],
+    [
+        "Mason McTavish",
+        "ANA",
+        "5",
+        "2",
+        "C",
+        "22",
+        "01:35",
+        "CBJ"
+    ],
+    [
+        "Ryan Strome",
+        "ANA",
+        "3",
+        "1",
+        "C",
+        "28",
+        "03:12",
+        "CBJ"
+    ],
+    [
+        "Troy Terry",
+        "ANA",
+        "7",
+        "1",
+        "RW",
+        "28",
+        "02:54",
+        "CBJ"
+    ],
+    [
+        "Frank Vatrano",
+        "ANA",
+        "4",
+        "1",
+        "RW",
+        "27",
+        "02:52",
+        "CBJ"
+    ],
+    [
+        "Kent Johnson",
+        "CBJ",
+        "5",
+        "1",
+        "C",
+        "15",
+        "03:35",
+        "ANA"
+    ],
+    [
+        "Kirill Marchenko",
+        "CBJ",
+        "7",
+        "1",
+        "RW",
+        "29",
+        "03:33",
+        "ANA"
+    ],
+    [
+        "Sean Monahan",
+        "CBJ",
         "4",
         "1",
         "C",
-        "26",
+        "29",
+        "03:33",
+        "ANA"
+    ],
+    [
+        "Dmitri Voronkov",
+        "CBJ",
+        "2",
+        "1",
+        "LW",
+        "20",
+        "03:32",
+        "ANA"
+    ],
+    [
+        "Zach Werenski",
+        "CBJ",
+        "11",
+        "1",
+        "D",
+        "29",
+        "03:52",
+        "ANA"
+    ],
+    [
+        "Dylan Cozens",
+        "BUF",
+        "2",
+        "2",
+        "C",
+        "29",
+        "03:16",
+        "WSH"
+    ],
+    [
+        "JJ Peterka",
+        "BUF",
+        "5",
+        "2",
+        "RW",
+        "27",
+        "01:54",
+        "WSH"
+    ],
+    [
+        "Owen Power",
+        "BUF",
+        "0",
+        "1",
+        "D",
+        "29",
+        "03:04",
+        "WSH"
+    ],
+    [
+        "Tage Thompson",
+        "BUF",
+        "5",
+        "1",
+        "C",
+        "24",
+        "03:18",
+        "WSH"
+    ],
+    [
+        "Alex Tuch",
+        "BUF",
+        "4",
+        "2",
+        "RW",
+        "29",
+        "02:37",
+        "WSH"
+    ],
+    [
+        "Jason Zucker",
+        "BUF",
+        "7",
+        "2",
+        "LW",
+        "29",
+        "03:14",
+        "WSH"
+    ],
+    [
+        "John Carlson",
+        "WSH",
+        "7",
+        "1",
+        "D",
+        "28",
+        "03:02",
+        "BUF"
+    ],
+    [
+        "Jakob Chychrun",
+        "WSH",
+        "5",
+        "1",
+        "D",
+        "23",
+        "03:00",
+        "BUF"
+    ],
+    [
+        "Pierre-Luc Dubois",
+        "WSH",
+        "3",
+        "2",
+        "LW",
+        "28",
+        "01:34",
+        "BUF"
+    ],
+    [
+        "Connor McMichael",
+        "WSH",
+        "6",
+        "1",
+        "C",
+        "28",
+        "03:13",
+        "BUF"
+    ],
+    [
+        "Dylan Strome",
+        "WSH",
+        "12",
+        "1",
+        "C",
+        "28",
+        "03:00",
+        "BUF"
+    ],
+    [
+        "Tom Wilson",
+        "WSH",
+        "6",
+        "1",
+        "RW",
+        "28",
         "02:54",
+        "BUF"
+    ],
+    [
+        "Cole Caufield",
+        "MTL",
+        "8",
+        "1",
+        "RW",
+        "29",
+        "02:59",
+        "WPG"
+    ],
+    [
+        "Kirby Dach",
+        "MTL",
+        "4",
+        "2",
+        "C",
+        "29",
+        "01:05",
+        "WPG"
+    ],
+    [
+        "Patrik Laine",
+        "MTL",
+        "3",
+        "1",
+        "LW",
+        "5",
+        "03:01",
+        "WPG"
+    ],
+    [
+        "Mike Matheson",
+        "MTL",
+        "7",
+        "2",
+        "D",
+        "27",
+        "01:34",
+        "WPG"
+    ],
+    [
+        "Juraj Slafkovsky",
+        "MTL",
+        "5",
+        "1",
+        "LW",
+        "26",
+        "03:00",
+        "WPG"
+    ],
+    [
+        "Nikita Chibrikov",
+        "WPG",
+        "1",
+        "2",
+        "RW",
+        "2",
+        "01:20",
+        "MTL"
+    ],
+    [
+        "Kyle Connor",
+        "WPG",
+        "9",
+        "1",
+        "LW",
+        "31",
+        "03:41",
+        "MTL"
+    ],
+    [
+        "Josh Morrissey",
+        "WPG",
+        "12",
+        "1",
+        "D",
+        "31",
+        "03:42",
+        "MTL"
+    ],
+    [
+        "Vladislav Namestnikov",
+        "WPG",
+        "7",
+        "2",
+        "C",
+        "31",
+        "01:58",
+        "MTL"
+    ],
+    [
+        "Nino Niederreiter",
+        "WPG",
+        "4",
+        "2",
+        "RW",
+        "31",
+        "01:53",
+        "MTL"
+    ],
+    [
+        "Cole Perfetti",
+        "WPG",
+        "7",
+        "1",
+        "C",
+        "31",
+        "03:51",
+        "MTL"
+    ],
+    [
+        "Neal Pionk",
+        "WPG",
+        "8",
+        "2",
+        "D",
+        "31",
+        "01:54",
+        "MTL"
+    ],
+    [
+        "Mark Scheifele",
+        "WPG",
+        "12",
+        "1",
+        "C",
+        "31",
+        "03:46",
+        "MTL"
+    ],
+    [
+        "Gabriel Vilardi",
+        "WPG",
+        "8",
+        "1",
+        "C",
+        "31",
+        "03:43",
+        "MTL"
+    ],
+    [
+        "Michael Bunting",
+        "PIT",
+        "6",
+        "1",
+        "LW",
+        "30",
+        "02:59",
+        "OTT"
+    ],
+    [
+        "Sidney Crosby",
+        "PIT",
+        "8",
+        "1",
+        "C",
+        "31",
+        "03:11",
+        "OTT"
+    ],
+    [
+        "Matt Grzelcyk",
+        "PIT",
+        "7",
+        "1",
+        "D",
+        "31",
+        "02:50",
+        "OTT"
+    ],
+    [
+        "Erik Karlsson",
+        "PIT",
+        "7",
+        "2",
+        "D",
+        "31",
+        "03:02",
+        "OTT"
+    ],
+    [
+        "Kris Letang",
+        "PIT",
+        "8",
+        "1",
+        "D",
+        "28",
+        "02:53",
+        "OTT"
+    ],
+    [
+        "Evgeni Malkin",
+        "PIT",
+        "7",
+        "2",
+        "C",
+        "31",
+        "03:01",
+        "OTT"
+    ],
+    [
+        "Rickard Rakell",
+        "PIT",
+        "6",
+        "1",
+        "RW",
+        "31",
+        "02:58",
+        "OTT"
+    ],
+    [
+        "Bryan Rust",
+        "PIT",
+        "4",
+        "2",
+        "RW",
+        "24",
+        "02:57",
+        "OTT"
+    ],
+    [
+        "Drake Batherson",
+        "OTT",
+        "16",
+        "1",
+        "RW",
+        "29",
+        "03:49",
+        "PIT"
+    ],
+    [
+        "Thomas Chabot",
+        "OTT",
+        "2",
+        "2",
+        "D",
+        "29",
+        "01:58",
+        "PIT"
+    ],
+    [
+        "Claude Giroux",
+        "OTT",
+        "6",
+        "2",
+        "RW",
+        "29",
+        "02:05",
+        "PIT"
+    ],
+    [
+        "Josh Norris",
+        "OTT",
+        "8",
+        "1",
+        "C",
+        "29",
+        "03:38",
+        "PIT"
+    ],
+    [
+        "Jake Sanderson",
+        "OTT",
+        "12",
+        "1",
+        "D",
+        "29",
+        "03:55",
+        "PIT"
+    ],
+    [
+        "Brady Tkachuk",
+        "OTT",
+        "13",
+        "1",
+        "LW",
+        "29",
+        "03:57",
+        "PIT"
+    ],
+    [
+        "Matthew Knies",
+        "TOR",
+        "4",
+        "2",
+        "LW",
+        "27",
+        "02:48",
+        "DET"
+    ],
+    [
+        "Auston Matthews",
+        "TOR",
+        "5",
+        "1",
+        "C",
+        "20",
+        "02:58",
+        "DET"
+    ],
+    [
+        "William Nylander",
+        "TOR",
+        "13",
+        "1",
+        "RW",
+        "29",
+        "03:39",
+        "DET"
+    ],
+    [
+        "Morgan Rielly",
+        "TOR",
+        "7",
+        "1",
+        "D",
+        "29",
+        "01:21",
+        "DET"
+    ],
+    [
+        "John Tavares",
+        "TOR",
+        "4",
+        "1",
+        "C",
+        "28",
+        "02:42",
+        "DET"
+    ],
+    [
+        "Alex DeBrincat",
+        "DET",
+        "11",
+        "2",
+        "RW",
+        "29",
+        "02:06",
+        "TOR"
+    ],
+    [
+        "Patrick Kane",
+        "DET",
+        "5",
+        "2",
+        "RW",
+        "24",
+        "02:24",
+        "TOR"
+    ],
+    [
+        "Dylan Larkin",
+        "DET",
+        "9",
+        "1",
+        "C",
+        "29",
+        "02:33",
+        "TOR"
+    ],
+    [
+        "Lucas Raymond",
+        "DET",
+        "13",
+        "1",
+        "LW",
+        "29",
+        "02:31",
+        "TOR"
+    ],
+    [
+        "Moritz Seider",
+        "DET",
+        "5",
+        "1",
+        "D",
+        "29",
+        "02:26",
+        "TOR"
+    ],
+    [
+        "Vladimir Tarasenko",
+        "DET",
+        "4",
+        "2",
+        "RW",
+        "28",
+        "01:25",
+        "TOR"
+    ],
+    [
+        "Pavel Buchnevich",
+        "STL",
+        "5",
+        "1",
+        "LW",
+        "28",
+        "02:14",
+        "DAL"
+    ],
+    [
+        "Justin Faulk",
+        "STL",
+        "4",
+        "1",
+        "D",
+        "28",
+        "02:45",
+        "DAL"
+    ],
+    [
+        "Jordan Kyrou",
+        "STL",
+        "6",
+        "1",
+        "C",
+        "30",
+        "02:19",
+        "DAL"
+    ],
+    [
+        "Jake Neighbours",
+        "STL",
+        "4",
+        "1",
+        "LW",
+        "30",
+        "02:30",
+        "DAL"
+    ],
+    [
+        "Robert Thomas",
+        "STL",
+        "4",
+        "1",
+        "C",
+        "18",
+        "02:42",
+        "DAL"
+    ],
+    [
+        "Jamie Benn",
+        "DAL",
+        "3",
+        "1",
+        "LW",
+        "28",
+        "01:55",
         "STL"
+    ],
+    [
+        "Matt Duchene",
+        "DAL",
+        "11",
+        "2",
+        "C",
+        "28",
+        "01:33",
+        "STL"
+    ],
+    [
+        "Miro Heiskanen",
+        "DAL",
+        "3",
+        "1",
+        "D",
+        "28",
+        "02:51",
+        "STL"
+    ],
+    [
+        "Roope Hintz",
+        "DAL",
+        "3",
+        "1",
+        "C",
+        "27",
+        "02:02",
+        "STL"
+    ],
+    [
+        "Wyatt Johnston",
+        "DAL",
+        "6",
+        "1",
+        "C",
+        "28",
+        "02:01",
+        "STL"
+    ],
+    [
+        "Mason Marchment",
+        "DAL",
+        "6",
+        "2",
+        "LW",
+        "27",
+        "01:34",
+        "STL"
+    ],
+    [
+        "Jason Robertson",
+        "DAL",
+        "4",
+        "1",
+        "LW",
+        "28",
+        "02:02",
+        "STL"
+    ],
+    [
+        "Logan Stankoven",
+        "DAL",
+        "3",
+        "2",
+        "C",
+        "26",
+        "01:31",
+        "STL"
+    ],
+    [
+        "Filip Forsberg",
+        "NSH",
+        "8",
+        "1",
+        "LW",
+        "30",
+        "02:45",
+        "COL"
+    ],
+    [
+        "Jonathan Marchessault",
+        "NSH",
+        "7",
+        "1",
+        "RW",
+        "30",
+        "02:45",
+        "COL"
+    ],
+    [
+        "Ryan O'Reilly",
+        "NSH",
+        "5",
+        "1",
+        "C",
+        "27",
+        "01:40",
+        "COL"
+    ],
+    [
+        "Brady Skjei",
+        "NSH",
+        "2",
+        "1",
+        "D",
+        "30",
+        "01:19",
+        "COL"
+    ],
+    [
+        "Steven Stamkos",
+        "NSH",
+        "10",
+        "1",
+        "C",
+        "30",
+        "02:57",
+        "COL"
+    ],
+    [
+        "Artturi Lehkonen",
+        "COL",
+        "2",
+        "1",
+        "LW",
+        "19",
+        "02:56",
+        "NSH"
+    ],
+    [
+        "Nathan MacKinnon",
+        "COL",
+        "14",
+        "1",
+        "C",
+        "31",
+        "02:51",
+        "NSH"
+    ],
+    [
+        "Cale Makar",
+        "COL",
+        "15",
+        "1",
+        "D",
+        "31",
+        "02:56",
+        "NSH"
+    ],
+    [
+        "Casey Mittelstadt",
+        "COL",
+        "9",
+        "2",
+        "C",
+        "31",
+        "00:58",
+        "NSH"
+    ],
+    [
+        "Valeri Nichushkin",
+        "COL",
+        "1",
+        "1",
+        "RW",
+        "14",
+        "02:59",
+        "NSH"
+    ],
+    [
+        "Mikko Rantanen",
+        "COL",
+        "13",
+        "1",
+        "RW",
+        "31",
+        "03:01",
+        "NSH"
+    ],
+    [
+        "Charlie Coyle",
+        "BOS",
+        "3",
+        "2",
+        "C",
+        "31",
+        "02:25",
+        "VAN"
+    ],
+    [
+        "Brad Marchand",
+        "BOS",
+        "7",
+        "1",
+        "LW",
+        "31",
+        "03:34",
+        "VAN"
+    ],
+    [
+        "Charlie McAvoy",
+        "BOS",
+        "3",
+        "1",
+        "D",
+        "31",
+        "03:26",
+        "VAN"
+    ],
+    [
+        "David Pastrnak",
+        "BOS",
+        "6",
+        "1",
+        "RW",
+        "31",
+        "04:07",
+        "VAN"
+    ],
+    [
+        "Pavel Zacha",
+        "BOS",
+        "1",
+        "1",
+        "C",
+        "31",
+        "03:16",
+        "VAN"
+    ],
+    [
+        "Brock Boeser",
+        "VAN",
+        "8",
+        "1",
+        "RW",
+        "21",
+        "02:48",
+        "BOS"
+    ],
+    [
+        "Jake DeBrusk",
+        "VAN",
+        "8",
+        "2",
+        "LW",
+        "28",
+        "02:31",
+        "BOS"
+    ],
+    [
+        "Conor Garland",
+        "VAN",
+        "9",
+        "1",
+        "RW",
+        "28",
+        "02:42",
+        "BOS"
+    ],
+    [
+        "Quinn Hughes",
+        "VAN",
+        "14",
+        "1",
+        "D",
+        "28",
+        "02:41",
+        "BOS"
+    ],
+    [
+        "J.T. Miller",
+        "VAN",
+        "6",
+        "1",
+        "C",
+        "18",
+        "02:08",
+        "BOS"
+    ],
+    [
+        "Elias Pettersson",
+        "VAN",
+        "8",
+        "1",
+        "C",
+        "28",
+        "02:44",
+        "BOS"
+    ],
+    [
+        "Aleksander Barkov",
+        "FLA",
+        "11",
+        "1",
+        "C",
+        "22",
+        "03:43",
+        "CGY"
+    ],
+    [
+        "Sam Bennett",
+        "FLA",
+        "6",
+        "2",
+        "C",
+        "29",
+        "00:47",
+        "CGY"
+    ],
+    [
+        "Aaron Ekblad",
+        "FLA",
+        "4",
+        "1",
+        "D",
+        "30",
+        "03:32",
+        "CGY"
+    ],
+    [
+        "Sam Reinhart",
+        "FLA",
+        "12",
+        "1",
+        "C",
+        "30",
+        "03:55",
+        "CGY"
+    ],
+    [
+        "Matthew Tkachuk",
+        "FLA",
+        "12",
+        "1",
+        "LW",
+        "25",
+        "04:01",
+        "CGY"
+    ],
+    [
+        "Carter Verhaeghe",
+        "FLA",
+        "11",
+        "1",
+        "C",
+        "30",
+        "03:27",
+        "CGY"
+    ],
+    [
+        "Rasmus Andersson",
+        "CGY",
+        "3",
+        "2",
+        "D",
+        "30",
+        "02:00",
+        "FLA"
+    ],
+    [
+        "Mikael Backlund",
+        "CGY",
+        "3",
+        "2",
+        "C",
+        "30",
+        "01:48",
+        "FLA"
+    ],
+    [
+        "Matt Coronato",
+        "CGY",
+        "5",
+        "1",
+        "RW",
+        "25",
+        "01:41",
+        "FLA"
+    ],
+    [
+        "Jonathan Huberdeau",
+        "CGY",
+        "6",
+        "1",
+        "C",
+        "30",
+        "01:54",
+        "FLA"
+    ],
+    [
+        "Nazem Kadri",
+        "CGY",
+        "6",
+        "2",
+        "C",
+        "30",
+        "02:06",
+        "FLA"
+    ],
+    [
+        "Yegor Sharangovich",
+        "CGY",
+        "4",
+        "1",
+        "C",
+        "23",
+        "01:50",
+        "FLA"
+    ],
+    [
+        "MacKenzie Weegar",
+        "CGY",
+        "8",
+        "1",
+        "D",
+        "30",
+        "01:57",
+        "FLA"
+    ],
+    [
+        "Connor Zary",
+        "CGY",
+        "7",
+        "1",
+        "C",
+        "30",
+        "01:48",
+        "FLA"
+    ],
+    [
+        "Jake Guentzel",
+        "TBL",
+        "8",
+        "1",
+        "C",
+        "27",
+        "04:11",
+        "SEA"
+    ],
+    [
+        "Brandon Hagel",
+        "TBL",
+        "4",
+        "1",
+        "LW",
+        "27",
+        "03:53",
+        "SEA"
+    ],
+    [
+        "Nikita Kucherov",
+        "TBL",
+        "19",
+        "1",
+        "RW",
+        "25",
+        "04:23",
+        "SEA"
+    ],
+    [
+        "Brayden Point",
+        "TBL",
+        "15",
+        "1",
+        "C",
+        "23",
+        "04:07",
+        "SEA"
+    ],
+    [
+        "Oliver Bjorkstrand",
+        "SEA",
+        "5",
+        "1",
+        "RW",
+        "30",
+        "02:37",
+        "TBL"
+    ],
+    [
+        "Andre Burakovsky",
+        "SEA",
+        "3",
+        "2",
+        "LW",
+        "29",
+        "01:27",
+        "TBL"
+    ],
+    [
+        "Vince Dunn",
+        "SEA",
+        "3",
+        "1",
+        "D",
+        "11",
+        "02:55",
+        "TBL"
+    ],
+    [
+        "Jared McCann",
+        "SEA",
+        "5",
+        "1",
+        "LW",
+        "31",
+        "02:50",
+        "TBL"
+    ],
+    [
+        "Brandon Montour",
+        "SEA",
+        "4",
+        "2",
+        "D",
+        "30",
+        "01:02",
+        "TBL"
+    ],
+    [
+        "Jaden Schwartz",
+        "SEA",
+        "4",
+        "2",
+        "C",
+        "31",
+        "01:14",
+        "TBL"
+    ],
+    [
+        "Chandler Stephenson",
+        "SEA",
+        "11",
+        "1",
+        "C",
+        "30",
+        "02:41",
+        "TBL"
+    ],
+    [
+        "Logan Cooley",
+        "UTA",
+        "6",
+        "1",
+        "C",
+        "29",
+        "01:40",
+        "SJS"
+    ],
+    [
+        "Dylan Guenther",
+        "UTA",
+        "13",
+        "1",
+        "RW",
+        "29",
+        "01:45",
+        "SJS"
+    ],
+    [
+        "Clayton Keller",
+        "UTA",
+        "8",
+        "1",
+        "RW",
+        "29",
+        "01:47",
+        "SJS"
+    ],
+    [
+        "Nick Schmaltz",
+        "UTA",
+        "6",
+        "1",
+        "C",
+        "29",
+        "01:45",
+        "SJS"
+    ],
+    [
+        "Mikhail Sergachev",
+        "UTA",
+        "7",
+        "1",
+        "D",
+        "29",
+        "01:47",
+        "SJS"
+    ],
+    [
+        "Macklin Celebrini",
+        "SJS",
+        "4",
+        "1",
+        "C",
+        "20",
+        "04:46",
+        "UTA"
+    ],
+    [
+        "William Eklund",
+        "SJS",
+        "6",
+        "2",
+        "LW",
+        "31",
+        "03:05",
+        "UTA"
+    ],
+    [
+        "Mikael Granlund",
+        "SJS",
+        "11",
+        "1",
+        "C",
+        "30",
+        "04:35",
+        "UTA"
+    ],
+    [
+        "Tyler Toffoli",
+        "SJS",
+        "7",
+        "1",
+        "C",
+        "32",
+        "04:11",
+        "UTA"
+    ],
+    [
+        "Jake Walman",
+        "SJS",
+        "5",
+        "1",
+        "D",
+        "27",
+        "03:14",
+        "UTA"
     ]
 ]

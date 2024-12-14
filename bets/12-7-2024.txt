@@ -1,0 +1,31 @@
+Deposit: $27
+
+BET ONE (Under):
+Fabian Zetterlund (SJS): 1.076
+Thomas Chabot (OTT): 1.10
+Devon Toews (COL): 1.076
+
+Total Odds: 1.273
+
+
+BET TWO (Under):
+Fabian Zetterlund (SJS): 1.076
+Thomas Chabot (OTT): 1.10
+Devon Toews (COL): 1.076
+Pierre-Luc Dubois (WAS): 1.09
+Phillip Danault (LAK): 1.076
+
+Total Odds: 1.6
+
+BET THREE (Over):
+Cale Makar (COL): 2.65
+
+BET FOUR (Over):
+Matthew Tkachuk (FLA): 2.32
+
+Bet One: $20 -> $25.4   ✓
+Bet Two: $5 -> $8       ✓
+Bet Three: $1 -> $2.65  ✓
+Bet Four: $1 -> $2.32   x
+
+Winnings: $9.05

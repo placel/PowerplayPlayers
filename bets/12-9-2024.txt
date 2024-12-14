@@ -1,0 +1,24 @@
+Balance: $34.06
+
+BET ONE (Under):
+Bowen Byram (BUF): 1.076
+Cutter Gauthier (ANA): 1.12
+
+Total Odds: 1.2
+
+BET TWO (Over):
+Lucas Raymond (DET): 2.85
+
+Total Odds: 2.85
+
+BET THREE (Over):
+Lucas Raymond (DET): 2.85
+Alex Debrincat (DET): 4.00
+
+Total Odds: 11.4
+
+Bet One: $25.0 -> $30.0     ✓
+Bet Two: $2 -> $5.7         x
+Bet Three: $1.06 -> $12.08  x
+
+Remaining Balance: $36.0

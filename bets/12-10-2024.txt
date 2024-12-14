@@ -1,0 +1,56 @@
+Balance: $36.0
+
+BET ONE (Under):
+Fabian Zetterlund (SJS): 1.071
+Rasmus Andersson (CGY): 1.11
+Jean-Gabriel Pageau (NYI): 1.076
+Brandon Montour (SEA): 1.1
+Morgan Rielly (TOR): 1.1 
+
+Total Odds: 1.547
+
+BET TWO (Over):
+Martin Necas (CAR): 2.2
+Shayne Gostisbehere (CAR): 2.55
+
+Total Odds: 5.61
+
+BET THREE (Over):
+Shayne Gostisbehere (CAR): 2.55
+Andrei Svechnikov (CAR): 2.55
+
+Total Odds: 6.5
+
+BET FOUR (Over):
+Jesper Bratt (NDJ): 2.85
+
+Total Odds: 2.85
+
+BET FIVE (Over):
+Brayden Point (TBL): 3.6
+
+BET SIX (Over):
+Brayden Point (TBL): 3.6
+Jesper Bratt (CAR): 2.85 
+
+Total Odds: 10.26
+
+BET SEVEN (Under):
+Fabian Zetterlund (SJS): 1.071
+Rasmus Andersson (CGY): 1.11
+Jean-Gabriel Pageau (NYI): 1.076
+Brandon Montour (SEA): 1.1
+Morgan Rielly (TOR): 1.1 
+Pavel Zacha (BOS): 1.12
+
+Total Odds: 1.73
+
+Bet One: $25 -> $38.675 ✓
+Bet Two: $1 -> $5.61    x
+Bet Three: $1 -> $6.5   x
+Bet Four: $1 -> $2.85   x
+Bet Five: $2 -> $7.2    x
+Bet Six: $1 -> $10.26   x
+Bet Seven: $5 -> $8.65  ✓
+
+Remaining Balance: $47.33

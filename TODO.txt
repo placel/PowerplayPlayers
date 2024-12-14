@@ -1,0 +1,5 @@
+Add a 'View Player Game Record' button so when clicked, the players last 5 - 10 games are grabbed and displayed (could be in anothe page)
+
+Make a 'Bet Builder' which store the odds of players and lets you build a list that shows the total odds at the end
+
+'Hide Game' Button that will hide players from games that are suspect

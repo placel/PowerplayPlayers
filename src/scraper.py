@@ -92,11 +92,21 @@ def dailyfaceoff(team_a, team_b, a_players, b_players):
 
     for p in a_players:
         if p not in df_pp_units:
+
+            # Alexander Wennberg appears as Alex
+            # This prevents a false positive
+            if p == 'Alexander Wennberg':
+                p = 'Alex Wennberg'
+
             print(p + ' is not on a powerplay unit: ' + team_a)
             not_on_pp_unit.append(p + ': ' + team_a)
     
     for p in b_players:
         if p not in df_pp_units:
+
+            if p == 'Alexander Wennberg':
+                p = 'Alex Wennberg'
+
             print(p + ' is not on a powerplay unit: ' + team_b)
             not_on_pp_unit.append(p + ': ' + team_b)
 
@@ -135,7 +145,8 @@ def get_team_abbrev(team):
         'sharks': 'SJS',
         'canucks': 'VAN',
         'goldenknights': 'VGK',
-        'kraken': 'SEA'
+        'kraken': 'SEA',
+        'hockeyclub': 'UTA'
     }
 
     return team_list[team]

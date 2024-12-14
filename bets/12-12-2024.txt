@@ -1,0 +1,40 @@
+Balance: $47.33
+
+BET ONE (Under):
+Thomas Harley (DAL): 1.076
+Leo Carlsson (ANA): 1.083
+Jean-Gabriel Pageau (NYI): 1.09
+Brayden Schenn (STL): 1.083
+Quinton Byfield	(LAK): 1.1
+
+Total Odds: 1.513
+
+BET TWO (Under):
+Logan Stankoven (DAL): 1.076
+Leo Carlsson (ANA): 1.083
+Charlie Coyle (BOS): 1.09
+Pierre-Luc Dubois (WSH): 1.1
+Rasmus Andersson (CGY): 1.1
+Maxim Tsyplakov (NYI): 1.071
+Alex Laferriere (LAK): 1.071
+
+Total Odds: 1.763
+
+BET THREE (Over):
+Brayden Point (TBL): 2.95
+Cale Makar (COL): 2.55
+
+Total Odds: 7.52
+
+BET FOUR (Over):
+Sam Reinhart (FLA): 3.0
+Willy Nylander (TOR): 2.45
+
+Total Odds: 7.35
+
+Bet One: $25 -> $37.825     ✓
+Bet Two: $20 -> $35.26      ✓
+Bet Three: $1.33 -> $10.0   x
+Bet Four: $1 -> $7.35       x
+
+Remaining Balance: $73.09
